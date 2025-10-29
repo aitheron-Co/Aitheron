@@ -1,0 +1,175 @@
+export default function AitheronSite() {
+  // Place your logo image inside the public/ folder as "logo.png"
+  const logoSrc = "/logo.png";
+
+  return (
+    <div className="min-h-screen w-full text-white bg-black selection:bg-yellow-500/30 selection:text-yellow-200">
+      {/* Top banner */}
+      <header className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.25),rgba(0,0,0,0.1)_40%,rgba(0,0,0,1))]" />
+        <div className="relative mx-auto max-w-7xl px-6 py-12 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src={logoSrc} alt="Aitheron Logo" className="h-12 w-12 object-contain" />
+            <span className="text-xl font-semibold tracking-widest text-yellow-400">AITHERON</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-8 text-sm">
+            <a href="#services" className="hover:text-yellow-400">Services</a>
+            <a href="#industries" className="hover:text-yellow-400">Industries</a>
+            <a href="#why" className="hover:text-yellow-400">Why Us</a>
+            <a href="#contact" className="hover:text-yellow-400">Contact</a>
+            <a href="#cta" className="ml-2 rounded-full bg-yellow-500/20 px-4 py-2 text-yellow-300 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30">Book a Call</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section id="hero" className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          {/* star field */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(212,160,23,0.15),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(212,160,23,0.08),transparent_45%),radial-gradient(circle_at_50%_80%,rgba(212,160,23,0.12),transparent_40%)]" />
+        </div>
+        <div className="mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+              Full-Stack <span className="text-yellow-400">Database → Cloud → AI</span> Services
+            </h1>
+            <p className="mt-5 text-base md:text-lg text-white/80">
+              We help enterprises modernize mission-critical databases, build secure cloud platforms, and ship AI that delivers measurable ROI.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3" id="cta">
+              <a href="#contact" className="rounded-xl bg-yellow-500/20 px-5 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30">Get a Proposal</a>
+              <a href="#services" className="rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10">Explore Services</a>
+            </div>
+            <ul className="mt-6 grid grid-cols-2 gap-3 text-sm text-white/70">
+              <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-yellow-400"/> Senior DBAs (15+ yrs)</li>
+              <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-yellow-400"/> Azure • AWS • Oracle</li>
+              <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-yellow-400"/> FinOps & Security First</li>
+              <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-yellow-400"/> Greece-based • Global</li>
+            </ul>
+          </div>
+          <div className="relative">
+            <div className="aspect-square rounded-3xl bg-yellow-600/10 ring-1 ring-yellow-500/30 p-8 grid place-items-center">
+              {/* Show real logo */}
+              <img src={logoSrc} alt="Aitheron Logo" className="max-h-56 opacity-90" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="border-t border-white/10 bg-neutral-950/40">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-yellow-400">Services</h2>
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            <Card title="Advanced Database Solutions" points={[
+              "Performance tuning & observability",
+              "HADR architecture & DR testing",
+              "Consolidation & licensing optimization",
+              "Security & compliance frameworks",
+            ]} />
+            <Card title="Cloud Infrastructure" points={[
+              "Cloud migration & modernization",
+              "Kubernetes & CI/CD enablement",
+              "Multi-cloud networking & SSO/IAM",
+              "FinOps cost governance",
+            ]} />
+            <Card title="AI-Driven Applications" points={[
+              "Predictive analytics & dashboards",
+              "Intelligent automation & copilots",
+              "NLP chatbots & personalization",
+              "AI readiness & ROI roadmap",
+            ]} />
+          </div>
+
+          {/* Tooling strip */}
+          <div className="mt-10 text-sm text-white/60">
+            <p className="uppercase tracking-widest text-white/40">Ecosystem</p>
+            <p>Azure (SQL, Synapse, Purview, ML, Arc) • AWS (RDS/Aurora, Glue, Lake Formation, SageMaker) • Oracle (Autonomous DB, OCI, AI Services)</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section id="industries" className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-yellow-400">Industries We Serve</h2>
+          <ul className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-white/80">
+            {[
+              "Financial Services",
+              "Healthcare & Life Sciences",
+              "Retail & E-commerce",
+              "Manufacturing & Supply Chain",
+              "Telecom & Media",
+              "Public Sector (Greece & Cyprus)",
+            ].map((it) => (
+              <li key={it} className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">{it}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Why Us */}
+      <section id="why" className="border-t border-white/10 bg-neutral-950/30">
+        <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-yellow-400">Why AITHERON?</h2>
+            <ul className="mt-6 space-y-3 text-white/80">
+              <li>End-to-end delivery from database → cloud → AI.</li>
+              <li>Outcome-based engagements (uptime, performance, cost savings).</li>
+              <li>Boutique agility — senior experts lead every project.</li>
+              <li>Security & compliance built in (GDPR-ready).</li>
+            </ul>
+          </div>
+          <div className="rounded-3xl bg-yellow-600/10 p-6 ring-1 ring-yellow-500/30">
+            <h3 className="text-lg font-semibold text-yellow-300">Signature Packages</h3>
+            <ol className="mt-3 list-decimal pl-5 text-white/80 space-y-1">
+              <li>DB Performance Sprint (2 weeks)</li>
+              <li>Cloud Cost Governance (FinOps) Accelerator (4 weeks)</li>
+              <li>AI Readiness & Pilot (6–8 weeks)</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="border-t border-white/10">
+        <div className="mx-auto max-w-3xl px-6 py-16 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-yellow-400">Let’s Build Your Next Advantage</h2>
+          <p className="mt-3 text-white/80">Based in Greece • Serving Greece, Cyprus, and global clients remotely</p>
+          <div className="mt-6 grid sm:grid-cols-3 gap-3">
+            <ContactCard label="Email" value="contact@aitheron.com" />
+            <ContactCard label="Phone" value="+30 210 000 0000" />
+            <ContactCard label="Web" value="www.aitheron.com" />
+          </div>
+          <a href="#hero" className="mt-8 inline-block rounded-xl bg-yellow-500/20 px-6 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30">Back to top</a>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 text-center text-xs text-white/50 py-6">
+        © {new Date().getFullYear()} AITHERON. All rights reserved.
+      </footer>
+    </div>
+  );
+}
+
+function Card({ title, points }) {
+  return (
+    <div className="h-full rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+      <h3 className="text-lg font-semibold text-yellow-300">{title}</h3>
+      <ul className="mt-3 space-y-2 text-white/80 text-sm">
+        {points.map((p) => (
+          <li key={p} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-yellow-400" />{p}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function ContactCard({ label, value }) {
+  return (
+    <div className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+      <p className="text-white/60 text-xs uppercase tracking-widest">{label}</p>
+      <p className="text-white/90 mt-1">{value}</p>
+    </div>
+  );
+}
