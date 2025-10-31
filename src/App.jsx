@@ -307,9 +307,32 @@ export default function AitheronSite() {
         </div>
       )}
 
-      <footer className="border-t border-white/10 text-center text-xs text-white/50 py-6">
-        © {new Date().getFullYear()} AITHERON. All rights reserved.
-      </footer>
+<footer className="border-t border-white/10 text-center text-xs text-white/60 py-8 space-y-3">
+  <p>© {new Date().getFullYear()} <span className="font-semibold text-white">AITHERON</span>. All rights reserved.</p>
+
+  <p>
+    <span className="font-semibold text-yellow-400">Registered Business:</span> AITHERON, Πλ. Ιπποδαμείας 8, Πειραιάς, Αττική, 18531, Greece
+  </p>
+
+  <p>
+    <span className="font-semibold text-yellow-400">VAT / Tax ID:</span> EL803032552
+  </p>
+
+  <p>
+    <span className="font-semibold text-yellow-400">Official Website:</span> 
+    <a href="https://www.aitheron.gr" className="text-yellow-400 hover:underline ml-1">www.aitheron.gr</a>
+  </p>
+
+  <p>
+    <span className="font-semibold text-yellow-400">Email:</span> 
+    <a href="mailto:contact@aitheron.gr" className="text-yellow-400 hover:underline ml-1">contact@aitheron.gr</a>
+  </p>
+
+  <p className="text-white/40 text-[10px]">
+    AITHERON is a Greece-based technology company providing advanced Database, Cloud, and AI solutions.
+  </p>
+</footer>
+
     </div>
   );
 }
