@@ -245,9 +245,9 @@ export default function AitheronSite() {
           <h2 className="text-2xl md:text-3xl font-bold text-yellow-400">Let’s Build Your Next Advantage</h2>
           <p className="mt-3 text-white/80">Based in Greece • Serving Greece, Cyprus, and global clients remotely</p>
           <div className="mt-6 grid sm:grid-cols-3 gap-3">
-            <ContactCard label="Email" value="contact@aitheron.com" />
+            <ContactCard label="Email" value="contact@aitheron.gr" />
             <ContactCard label="Phone" value="+30 210 000 0000" />
-            <ContactCard label="Web" value="www.aitheron.com" />
+            <ContactCard label="Web" value="www.aitheron.gr" />
           </div>
           <div className="mt-6">
             <button onClick={openCalendly} className="rounded-xl bg-yellow-500/20 px-6 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30">
