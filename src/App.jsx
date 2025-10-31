@@ -306,6 +306,38 @@ export default function AitheronSite() {
           </div>
         </div>
       )}
+<section id="legal" className="border-t border-white/10 bg-neutral-950/30">
+  <div className="mx-auto max-w-5xl px-6 py-12 text-left text-white/70 space-y-4">
+    <h2 className="text-xl font-semibold text-yellow-400">Privacy Policy & Legal Notice</h2>
+
+    <p>
+      AITHERON respects your privacy and complies with the EU General Data Protection Regulation (GDPR).
+      We only collect the personal information that you voluntarily provide through our contact forms or business communications.
+      This information is used exclusively for responding to your inquiries, preparing proposals, or maintaining a business relationship.
+    </p>
+
+    <p>
+      We do not share, sell, or rent your data to any third parties.
+      All submitted information is stored securely and only for as long as necessary for the purposes outlined above.
+    </p>
+
+    <p>
+      If you wish to request access to, correction, or deletion of your personal data, you may contact us at
+      <a href="mailto:privacy@aitheron.gr" className="text-yellow-400 hover:underline ml-1">privacy@aitheron.gr</a>.
+    </p>
+
+    <p>
+      <strong>Company:</strong> AITHERON • Πλ. Ιπποδαμείας 8, Πειραιάς, Αττική, 18531, Greece • VAT: EL803032552  
+      <br />
+      <strong>Website:</strong> <a href="https://www.aitheron.gr" className="text-yellow-400 hover:underline">www.aitheron.gr</a>
+    </p>
+
+    <p className="text-sm text-white/50">
+      By using this website, you agree to our Privacy Policy.  
+      This site may use cookies or analytics tools solely to understand aggregated traffic and improve user experience.
+    </p>
+  </div>
+</section>
 
 <footer className="border-t border-white/10 text-center text-xs text-white/60 py-8 space-y-3">
   <p>© {new Date().getFullYear()} <span className="font-semibold text-white">AITHERON</span>. All rights reserved.</p>
