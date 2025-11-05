@@ -124,22 +124,6 @@ export default function AitheronSite() {
 
       {/* Hero */}
 
-      <div className="relative w-full h-[400px] md:h-[500px]">
-  <img
-    src="/images/banner.jpg"
-    alt="Aitheron Digital Transformation Banner"
-    className="w-full h-full object-cover"
-  />
-  <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
-    <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-      Empowering Data • Cloud • AI Transformation
-    </h1>
-    <p className="text-gray-300 text-lg max-w-2xl">
-      Helping enterprises modernize data, migrate to the cloud, and embrace AI-driven innovation.
-    </p>
-  </div>
-</div>
-
       <section id="hero" className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10" />
         <div className="mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
