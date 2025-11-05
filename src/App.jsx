@@ -340,31 +340,28 @@ export default function AitheronSite() {
   </div>
 </section>
 
-<footer className="border-t border-white/10 text-center text-xs text-white/60 py-8 space-y-3">
+<footer className="border-t border-white/10 text-center text-xs text-white/60 py-8 space-y-4">
   <p>© {new Date().getFullYear()} <span className="font-semibold text-white">AITHERON</span>. All rights reserved.</p>
 
-  <p>
-    <span className="font-semibold text-yellow-400">Registered Business:</span> AITHERON, Πλ. Ιπποδαμείας 8, Πειραιάς, Αττική, 18531, Greece
-  </p>
-
-  <p>
-    <span className="font-semibold text-yellow-400">VAT / Tax ID:</span> EL803032552
-  </p>
-
-  <p>
-    <span className="font-semibold text-yellow-400">Official Website:</span> 
-    <a href="https://www.aitheron.gr" className="text-yellow-400 hover:underline ml-1">www.aitheron.gr</a>
-  </p>
-
-  <p>
-    <span className="font-semibold text-yellow-400">Email:</span> 
-    <a href="mailto:contact@aitheron.gr" className="text-yellow-400 hover:underline ml-1">contact@aitheron.gr</a>
-  </p>
+  <div className="flex justify-center gap-6 text-yellow-400">
+    <a
+      href="https://www.linkedin.com/company/aitheron"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 hover:text-yellow-300 transition"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11.75 20h-2.5v-10h2.5v10zm-1.25-11.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5zm13 11.5h-2.5v-5.604c0-1.337-.025-3.061-1.865-3.061-1.867 0-2.155 1.458-2.155 2.964v5.701h-2.5v-10h2.4v1.367h.034c.334-.632 1.155-1.299 2.377-1.299 2.541 0 3.009 1.673 3.009 3.848v6.084z"/>
+      </svg>
+      <span>Follow us on LinkedIn</span>
+    </a>
+  </div>
 
   <p className="text-white/40 text-[10px]">
     AITHERON is a Greece-based technology company providing advanced Database, Cloud, and AI solutions.
   </p>
 </footer>
+
 
     </div>
   );
