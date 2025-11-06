@@ -1,8 +1,6 @@
 // src/App.jsx
 import { useEffect, useState } from "react";
 
-const [mobileOpen, setMobileOpen] = useState(false);
-
 export default function AitheronSite() {
   // Logo (placed in /public/logo.png)
   const logoSrc = "/logo.png";
@@ -45,7 +43,8 @@ export default function AitheronSite() {
   // 1) Create form at https://formspree.io
   // 2) Paste your endpoint below (e.g., https://formspree.io/f/abcdwxyz)
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrbywnyj";
-
+  
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
