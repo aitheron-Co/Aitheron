@@ -120,7 +120,7 @@ export default function AitheronSite() {
       <div className="flex items-center gap-3">
         {/* LinkedIn */}
         <a
-          href="https://www.linkedin.com/company/aitheron?utm_source=site&utm_medium=nav&utm_campaign=follow"
+          href="https://www.linkedin.com/company/aitheron"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Follow Aitheron on LinkedIn"
