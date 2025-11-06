@@ -101,7 +101,7 @@ export default function AitheronSite() {
     <div className="min-h-screen w-full text-white bg-black selection:bg-yellow-500/30 selection:text-yellow-200">
       {/* Top banner */}
    {/* =================== HEADER (Responsive) =================== */}
-<header className="relative overflow-hidden">
+<header className="sticky top-0 z-50 relative">
   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.25),rgba(0,0,0,0.1)_40%,rgba(0,0,0,1))]" />
   <div className="relative mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
     {/* Brand */}
@@ -157,52 +157,60 @@ export default function AitheronSite() {
   </div>
 
   {/* Mobile dropdown (overlay) */}
-  {mobileOpen && (
-    <div className="md:hidden absolute inset-x-0 top-full z-50 bg-black/95 ring-1 ring-white/10">
-      <div className="mx-auto max-w-7xl px-6 py-4">
-        <div className="flex justify-end">
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-lg p-2 text-white/70 hover:text-white"
-            aria-label="Close menu"
+{mobileOpen && (
+  <div
+    className="md:hidden fixed inset-x-0 top-[64px] z-[60] bg-black/95 ring-1 ring-white/10
+               max-h-[calc(100vh-64px)] overflow-y-auto"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div className="mx-auto max-w-7xl px-6 py-4">
+      <div className="flex justify-end">
+        <button
+          type="button"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-white/70 hover:text-white"
+          aria-label="Close menu"
+          onClick={() => setMobileOpen(false)}
+        >
+          <span className="sr-only">Close menu</span>
+          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.71 2.89 18.3 9.17 12 2.89 5.71 4.3 4.29l6.29 6.3 6.29-6.3z"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav className="grid gap-2 text-base">
+        <a href="#services" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Services</a>
+        <a href="#industries" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Industries</a>
+        <a href="#why" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Why Us</a>
+        <a href="#contact" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Contact</a>
+
+        <div className="mt-2 grid gap-2">
+          <a
+            href="https://www.linkedin.com/company/aitheron"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
             onClick={() => setMobileOpen(false)}
           >
-            <span className="sr-only">Close menu</span>
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.71 2.89 18.3 9.17 12 2.89 5.71 4.3 4.29l6.29 6.3 6.29-6.3z"/></svg>
+            {/* LinkedIn icon */}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+              <path d="M19 0H5A5 5 0 0 0 0 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5ZM7.5 20H5V9h2.5v11Zm-1.3-12.6A1.45 1.45 0 1 1 7.65 6a1.45 1.45 0 0 1-1.45 1.4ZM20 20h-2.5v-5.6c0-1.46-.52-2.45-1.82-2.45-1 0-1.6.68-1.86 1.33-.1.24-.12.58-.12.92V20H11.2s.03-9.5 0-10.5H13.7v1.49c.33-.5 1.16-1.22 2.7-1.22 1.97 0 3.6 1.29 3.6 4.07V20Z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <button
+            onClick={() => { setMobileOpen(false); openCalendly(); }}
+            className="rounded-xl bg-yellow-500/20 px-3 py-2 text-yellow-200 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30"
+          >
+            Book a Call
           </button>
         </div>
-        <nav className="grid gap-2 text-base">
-          <a href="#services" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Services</a>
-          <a href="#industries" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Industries</a>
-          <a href="#why" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Why Us</a>
-          <a href="#contact" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Contact</a>
-
-          <div className="mt-2 grid gap-2">
-            <a
-              href="https://www.linkedin.com/company/aitheron"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
-              onClick={() => setMobileOpen(false)}
-            >
-              {/* small LI icon */}
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
-                <path d="M19 0H5A5 5 0 0 0 0 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5ZM7.5 20H5V9h2.5v11Zm-1.3-12.6A1.45 1.45 0 1 1 7.65 6a1.45 1.45 0 0 1-1.45 1.4ZM20 20h-2.5v-5.6c0-1.46-.52-2.45-1.82-2.45-1 0-1.6.68-1.86 1.33-.1.24-.12.58-.12.92V20H11.2s.03-9.5 0-10.5H13.7v1.49c.33-.5 1.16-1.22 2.7-1.22 1.97 0 3.6 1.29 3.6 4.07V20Z"/>
-              </svg>
-              <span>LinkedIn</span>
-            </a>
-
-            <button
-              onClick={() => { setMobileOpen(false); openCalendly(); }}
-              className="rounded-xl bg-yellow-500/20 px-3 py-2 text-yellow-200 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30"
-            >
-              Book a Call
-            </button>
-          </div>
-        </nav>
-      </div>
+      </nav>
     </div>
-  )}
+  </div>
+)}
 </header>
 {/* ================= END HEADER (Responsive) ================= */}
 
