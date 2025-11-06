@@ -97,6 +97,18 @@ export default function AitheronSite() {
     }
   }, []);
 
+  // Prevent background scroll when mobile menu is open
+useEffect(() => {
+  if (mobileOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [mobileOpen]);
+
   return (
     <div className="min-h-screen w-full text-white bg-black selection:bg-yellow-500/30 selection:text-yellow-200">
       {/* Top banner */}
