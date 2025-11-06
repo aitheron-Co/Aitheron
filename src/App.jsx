@@ -122,15 +122,6 @@ export default function AitheronSite() {
         </div>
       </header>
 
-<a
-  href="https://www.linkedin.com/company/aitheron"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="rounded-xl bg-white/10 px-5 py-3 text-yellow-200 ring-1 ring-white/15 hover:bg-white/15"
->
-  <span>Connect on LinkedIn</span>
-</a>
-
       
       {/* Hero */}
 
