@@ -1,8 +1,6 @@
 // src/App.jsx
 import { useEffect, useState } from "react";
 
-const [mobileOpen, setMobileOpen] = useState(false);
-
 export default function AitheronSite() {
   // Logo (placed in /public/logo.png)
   const logoSrc = "/logo.png";
