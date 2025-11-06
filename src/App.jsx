@@ -106,32 +106,39 @@ export default function AitheronSite() {
             <img src={logoSrc} alt="Aitheron Logo" className="h-12 w-12 object-contain rounded-full" />
             <span className="text-xl font-semibold tracking-widest text-yellow-400">AITHERON</span>
           </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#services" className="hover:text-yellow-400">Services</a>
-            <a href="#industries" className="hover:text-yellow-400">Industries</a>
-            <a href="#why" className="hover:text-yellow-400">Why Us</a>
-            <a href="#contact" className="hover:text-yellow-400">Contact</a>
-            <a
-              href={CALENDLY_URL}
-              onClick={openCalendly}
-              className="ml-2 rounded-full bg-yellow-500/20 px-4 py-2 text-yellow-300 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30"
-            >
-<a
-  href="https://www.linkedin.com/company/aitheron?utm_source=site&utm_medium=nav&utm_campaign=follow"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Follow Aitheron on LinkedIn"
-  className="inline-flex items-center gap-2 rounded-full bg-yellow-500/20 px-4 py-2 text-yellow-300 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30"
->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
-    <path d="M19 0H5A5 5 0 0 0 0 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5ZM7.5 20H5V9h2.5v11Zm-1.3-12.6A1.45 1.45 0 1 1 7.65 6a1.45 1.45 0 0 1-1.45 1.4ZM20 20h-2.5v-5.6c0-1.46-.52-2.45-1.82-2.45-1 0-1.6.68-1.86 1.33-.1.24-.12.58-.12.92V20H11.2s.03-9.5 0-10.5H13.7v1.49c.33-.5 1.16-1.22 2.7-1.22 1.97 0 3.6 1.29 3.6 4.07V20Z"/>
-  </svg>
-  <span>LinkedIn</span>
-</a>          
-              Book a Call
-            </a>
-          </nav>
-        </div>
+<nav className="hidden md:flex items-center gap-8 text-sm">
+  <a href="#services" className="hover:text-yellow-400">Services</a>
+  <a href="#industries" className="hover:text-yellow-400">Industries</a>
+  <a href="#why" className="hover:text-yellow-400">Why Us</a>
+  <a href="#contact" className="hover:text-yellow-400">Contact</a>
+
+  {/* CTA group – each button styles itself, no shared pill wrapper */}
+  <div className="flex items-center gap-3">
+    {/* LinkedIn (ghost button) */}
+    <a
+      href="https://www.linkedin.com/company/aitheron?utm_source=site&utm_medium=nav&utm_campaign=follow"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Follow Aitheron on LinkedIn"
+      className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+        <path d="M19 0H5A5 5 0 0 0 0 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5ZM7.5 20H5V9h2.5v11Zm-1.3-12.6A1.45 1.45 0 1 1 7.65 6a1.45 1.45 0 0 1-1.45 1.4ZM20 20h-2.5v-5.6c0-1.46-.52-2.45-1.82-2.45-1 0-1.6.68-1.86 1.33-.1.24-.12.58-.12.92V20H11.2s.03-9.5 0-10.5H13.7v1.49c.33-.5 1.16-1.22 2.7-1.22 1.97 0 3.6 1.29 3.6 4.07V20Z"/>
+      </svg>
+      <span>LinkedIn</span>
+    </a>
+
+    {/* Book a Call */}
+    <button
+      onClick={openCalendly}
+      className="rounded-full bg-yellow-500/20 px-4 py-2 text-yellow-300 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30"
+    >
+      Book a Call
+    </button>
+  </div>
+</nav>
+
+   
       </header>
 
       
