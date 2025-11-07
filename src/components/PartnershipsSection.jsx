@@ -1,8 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 
-// Aitheron – Partnerships Section (React + TailwindCSS)
-
 const statusStyles = {
   official: "bg-emerald-600/10 text-emerald-600 ring-1 ring-emerald-600/20",
   in_progress: "bg-amber-500/10 text-amber-600 ring-1 ring-amber-500/20",
@@ -19,10 +17,7 @@ const partners = [
       "Azure & Fabric solutions for analytics, modernization, and AI-ready data platforms.",
     description:
       "We design and implement scalable data estates on Azure and Microsoft Fabric: ingestion with Data Factory, medallion lakehouses, governance with Purview, and Power BI for business insights.",
-    cta: {
-      label: "Explore Microsoft Services",
-      href: "/services/azure",
-    },
+    cta: { label: "Explore Microsoft Services", href: "/services/azure" },
     logo: (
       <svg viewBox="0 0 48 48" aria-hidden="true" className="h-8 w-8">
         <rect x="2" y="2" width="20" height="20" className="fill-current opacity-90" />
@@ -36,14 +31,10 @@ const partners = [
     name: "AWS",
     category: "Cloud",
     status: "planned",
-    tagline:
-      "Future multi-cloud expansion with analytics and migration capabilities.",
+    tagline: "Future multi-cloud expansion with analytics and migration capabilities.",
     description:
       "Planned enablement for data lake architectures, warehousing, and migration strategies to support multi-cloud requirements.",
-    cta: {
-      label: "Our Multi-Cloud Approach",
-      href: "/services/multicloud",
-    },
+    cta: { label: "Our Multi-Cloud Approach", href: "/services/multicloud" },
     logo: <div className="font-semibold text-xl tracking-tight">aws</div>,
   },
   {
@@ -54,10 +45,7 @@ const partners = [
       "Building Kafka-based streaming competence for real-time data and event-driven systems.",
     description:
       "We are actively pursuing Confluent learning paths and certifications to power real-time analytics, CDC pipelines, and streaming integrations.",
-    cta: {
-      label: "Streaming Readiness",
-      href: "/services/streaming",
-    },
+    cta: { label: "Streaming Readiness", href: "/services/streaming" },
     logo: <div className="font-semibold text-xl tracking-tight">C</div>,
   },
 ];
@@ -72,9 +60,7 @@ function StatusPill({ status }) {
       ? "Training & Certification Phase"
       : "Planned Integration";
   return (
-    <span
-      className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium ${statusStyles[status]}`}
-    >
+    <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium ${statusStyles[status]}`}>
       {label}
     </span>
   );
@@ -96,17 +82,11 @@ function PartnerCard({ partner }) {
         <StatusPill status={partner.status} />
       </div>
 
-      <h3 className="mt-4 text-lg font-semibold tracking-tight text-zinc-900 dark:text-white">
-        {partner.name}
-      </h3>
+      <h3 className="mt-4 text-lg font-semibold tracking-tight text-zinc-900 dark:text-white">{partner.name}</h3>
       <p className="text-sm text-zinc-500 dark:text-zinc-400">{partner.category}</p>
 
-      <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-        {partner.tagline}
-      </p>
-      <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-        {partner.description}
-      </p>
+      <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">{partner.tagline}</p>
+      <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{partner.description}</p>
 
       <div className="mt-5">
         <Link
@@ -116,17 +96,12 @@ function PartnerCard({ partner }) {
           {partner.cta.label}
         </Link>
       </div>
-
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/0 transition group-hover:ring-black/5 dark:group-hover:ring-white/10" />
     </article>
   );
 }
 
 export default function PartnershipsSection() {
-  const categories = useMemo(
-    () => Array.from(new Set(partners.map((p) => p.category))),
-    []
-  );
+  const categories = useMemo(() => Array.from(new Set(partners.map((p) => p.category))), []);
 
   return (
     <section
@@ -134,29 +109,19 @@ export default function PartnershipsSection() {
       aria-labelledby="partnerships-heading"
       className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-24"
     >
-      {/* Header */}
       <div className="mx-auto max-w-3xl text-center">
-        <h2
-          id="partnerships-heading"
-          className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white"
-        >
+        <h2 id="partnerships-heading" className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
           Strategic Partnerships
         </h2>
         <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
-          We collaborate with leading technology providers to deliver
-          scalable, secure, and innovative solutions for our clients.
+          We collaborate with leading technology providers to deliver scalable, secure, and innovative solutions for our clients.
         </p>
         <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-          This page reflects our current enablement status. Official badges and
-          partner IDs will be added as each partnership is confirmed.
+          This page reflects our current enablement status. Official badges and partner IDs will be added as each partnership is confirmed.
         </p>
       </div>
 
-      {/* Category Chips */}
-      <nav
-        aria-label="Partner categories"
-        className="mt-8 flex flex-wrap items-center justify-center gap-2"
-      >
+      <nav aria-label="Partner categories" className="mt-8 flex flex-wrap items-center justify-center gap-2">
         <a
           href="#partnerships"
           className="rounded-full border border-zinc-200/70 px-3 py-1.5 text-sm text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
@@ -164,26 +129,20 @@ export default function PartnershipsSection() {
           All
         </a>
         {categories.map((c) => (
-          <span
-            key={c}
-            className="rounded-full border border-zinc-200/70 px-3 py-1.5 text-sm text-zinc-700 dark:border-zinc-700 dark:text-zinc-300"
-          >
+          <span key={c} className="rounded-full border border-zinc-200/70 px-3 py-1.5 text-sm text-zinc-700 dark:border-zinc-700 dark:text-zinc-300">
             {c}
           </span>
         ))}
       </nav>
 
-      {/* Grid */}
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {partners.map((p) => (
           <PartnerCard key={p.name} partner={p} />
         ))}
       </div>
 
-      {/* Footnotes / compliance line */}
       <p className="mt-10 text-center text-xs text-zinc-500 dark:text-zinc-400">
-        Logos are placeholders. Official partner designations and artwork will
-        be displayed once agreements are finalized.
+        Logos are placeholders. Official partner designations and artwork will be displayed once agreements are finalized.
       </p>
     </section>
   );
