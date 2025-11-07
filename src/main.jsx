@@ -5,7 +5,7 @@ import AitheronSite from "./App.jsx";
 import AzureServicesPage from "./pages/AzureServicesPage.jsx";
 import "./index.css";
 
-// Ensure Calendly script is always available
+// ✅ Load Calendly widget script globally (works on all routes)
 if (!document.querySelector("#calendly-widget-js")) {
   const s = document.createElement("script");
   s.id = "calendly-widget-js";
@@ -13,7 +13,6 @@ if (!document.querySelector("#calendly-widget-js")) {
   s.async = true;
   document.body.appendChild(s);
 }
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
