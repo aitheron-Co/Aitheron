@@ -94,15 +94,24 @@ export default function AzureServicesSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 flex flex-wrap gap-3">
-          <a href="#contact" className="rounded-xl bg-yellow-500/20 px-5 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30">
-            Request an Azure Assessment
-          </a>
-          <a href="#cta" className="rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10">
-            See How We Engage
-          </a>
-        </div>
-      </div>
+    <div className="mt-10 flex flex-wrap gap-3">
+  {/* Jump to the contact section on the homepage */}
+  <a
+    href="/#contact"
+    className="rounded-xl bg-yellow-500/20 px-5 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30"
+  >
+    Request an Azure Assessment
+  </a>
+
+  {/* Jump to the CTA block on the homepage */}
+  <a
+    href="/#cta"
+    className="rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10"
+  >
+    See How We Engage
+  </a>
+</div>
+
     </section>
   );
 }
