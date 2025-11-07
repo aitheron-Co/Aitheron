@@ -1,3 +1,18 @@
+// Opens Calendly popup inline (same script used on homepage)
+function openCalendly(e) {
+  e?.preventDefault?.();
+  const CALENDLY_URL = "https://calendly.com/aitheron/new-meeting?background_color=000000&text_color=ffffff&primary_color=d4a017";
+
+  // Try open popup if script loaded
+  if (window.Calendly && typeof window.Calendly.initPopupWidget === "function") {
+    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+  } else {
+    // fallback: open new tab
+    window.open(CALENDLY_URL, "_blank");
+  }
+}
+
+
 export default function AzureServicesSection() {
   return (
     <section
@@ -37,12 +52,14 @@ export default function AzureServicesSection() {
           </a>
 
           {/* Optional direct Calendly link */}
-          <a
-            href="https://calendly.com/aitheron/new-meeting?background_color=000000&text_color=ffffff&primary_color=d4a017"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10"
-          >
+          
+          <button
+  onClick={openCalendly}
+  className="rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10"
+>
+  Book a Call
+</button>
+
             Book a Call
           </a>
         </div>
