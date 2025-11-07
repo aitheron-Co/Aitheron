@@ -1,5 +1,6 @@
-
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
+
 
 // Aitheron – Partnerships Section (React + TailwindCSS)
 // Drop this component anywhere in your layout (e.g., below About and above Contact)
@@ -22,7 +23,7 @@ const partners = [
       "We design and implement scalable data estates on Azure and Microsoft Fabric: ingestion with Data Factory, medallion lakehouses, governance with Purview, and Power BI for business insights.",
     cta: {
       label: "Explore Microsoft Services",
-      href: "#azure", // update when your route is ready
+      href: "/services/azure", // update when your route is ready
     },
     logo: (
       <svg viewBox="0 0 48 48" aria-hidden="true" className="h-8 w-8">
@@ -112,10 +113,12 @@ function PartnerCard({ partner }) {
       </p>
 
       <div className="mt-5">
-        <a
-          href={partner.cta.href}
-          className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800/80"
-        >
+      <Link
+   to={p.cta.href}
+   className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800/80"
+ >
+   {p.cta.label}
+ </Link>
           {partner.cta.label}
         </a>
       </div>
