@@ -5,6 +5,16 @@ import AitheronSite from "./App.jsx";
 import AzureServicesPage from "./pages/AzureServicesPage.jsx";
 import "./index.css";
 
+// Ensure Calendly script is always available
+if (!document.querySelector("#calendly-widget-js")) {
+  const s = document.createElement("script");
+  s.id = "calendly-widget-js";
+  s.src = "https://assets.calendly.com/assets/external/widget.js";
+  s.async = true;
+  document.body.appendChild(s);
+}
+
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
