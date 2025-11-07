@@ -22,7 +22,7 @@ const partners = [
       "We design and implement scalable data estates on Azure and Microsoft Fabric: ingestion with Data Factory, medallion lakehouses, governance with Purview, and Power BI for business insights.",
     cta: {
       label: "Explore Microsoft Services",
-      href: "/services/azure", // update when your route is ready
+      href: "#azure", // update when your route is ready
     },
     logo: (
       <svg viewBox="0 0 48 48" aria-hidden="true" className="h-8 w-8">
