@@ -172,3 +172,5 @@ export default function PartnershipsSection() {
     </section>
   );
 }
+export default PartnershipsSection;
+
