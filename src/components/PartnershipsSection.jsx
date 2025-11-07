@@ -1,10 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 
-
 // Aitheron – Partnerships Section (React + TailwindCSS)
-// Drop this component anywhere in your layout (e.g., below About and above Contact)
-// Props: none. Edit the `partners` array to add/modify partners and statuses.
 
 const statusStyles = {
   official: "bg-emerald-600/10 text-emerald-600 ring-1 ring-emerald-600/20",
@@ -18,12 +15,13 @@ const partners = [
     name: "Microsoft",
     category: "Cloud",
     status: "in_progress",
-    tagline: "Azure & Fabric solutions for analytics, modernization, and AI-ready data platforms.",
+    tagline:
+      "Azure & Fabric solutions for analytics, modernization, and AI-ready data platforms.",
     description:
       "We design and implement scalable data estates on Azure and Microsoft Fabric: ingestion with Data Factory, medallion lakehouses, governance with Purview, and Power BI for business insights.",
     cta: {
       label: "Explore Microsoft Services",
-      href: "/services/azure", // update when your route is ready
+      href: "/services/azure",
     },
     logo: (
       <svg viewBox="0 0 48 48" aria-hidden="true" className="h-8 w-8">
@@ -38,31 +36,29 @@ const partners = [
     name: "AWS",
     category: "Cloud",
     status: "planned",
-    tagline: "Future multi-cloud expansion with analytics and migration capabilities.",
+    tagline:
+      "Future multi-cloud expansion with analytics and migration capabilities.",
     description:
       "Planned enablement for data lake architectures, warehousing, and migration strategies to support multi-cloud requirements.",
     cta: {
-      label: "Our Multi‑Cloud Approach",
+      label: "Our Multi-Cloud Approach",
       href: "/services/multicloud",
     },
-    logo: (
-      <div className="font-semibold text-xl tracking-tight">aws</div>
-    ),
+    logo: <div className="font-semibold text-xl tracking-tight">aws</div>,
   },
   {
     name: "Confluent",
     category: "Streaming",
     status: "training",
-    tagline: "Building Kafka-based streaming competence for real-time data and event-driven systems.",
+    tagline:
+      "Building Kafka-based streaming competence for real-time data and event-driven systems.",
     description:
       "We are actively pursuing Confluent learning paths and certifications to power real-time analytics, CDC pipelines, and streaming integrations.",
     cta: {
       label: "Streaming Readiness",
       href: "/services/streaming",
     },
-    logo: (
-      <div className="font-semibold text-xl tracking-tight">C</div>
-    ),
+    logo: <div className="font-semibold text-xl tracking-tight">C</div>,
   },
 ];
 
@@ -113,7 +109,6 @@ function PartnerCard({ partner }) {
       </p>
 
       <div className="mt-5">
-        {/* Use React Router Link and the correct variable: partner (not p) */}
         <Link
           to={partner.cta.href}
           className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800/80"
@@ -127,7 +122,6 @@ function PartnerCard({ partner }) {
   );
 }
 
-
 export default function PartnershipsSection() {
   const categories = useMemo(
     () => Array.from(new Set(partners.map((p) => p.category))),
@@ -135,27 +129,45 @@ export default function PartnershipsSection() {
   );
 
   return (
-    <section id="partnerships" aria-labelledby="partnerships-heading" className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-24">
+    <section
+      id="partnerships"
+      aria-labelledby="partnerships-heading"
+      className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-24"
+    >
       {/* Header */}
       <div className="mx-auto max-w-3xl text-center">
-        <h2 id="partnerships-heading" className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+        <h2
+          id="partnerships-heading"
+          className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white"
+        >
           Strategic Partnerships
         </h2>
         <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
-          We collaborate with leading technology providers to deliver scalable, secure, and innovative solutions for our clients.
+          We collaborate with leading technology providers to deliver
+          scalable, secure, and innovative solutions for our clients.
         </p>
         <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-          This page reflects our current enablement status. Official badges and partner IDs will be added as each partnership is confirmed.
+          This page reflects our current enablement status. Official badges and
+          partner IDs will be added as each partnership is confirmed.
         </p>
       </div>
 
       {/* Category Chips */}
-      <nav aria-label="Partner categories" className="mt-8 flex flex-wrap items-center justify-center gap-2">
-        <a href="#partnerships" className="rounded-full border border-zinc-200/70 px-3 py-1.5 text-sm text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
+      <nav
+        aria-label="Partner categories"
+        className="mt-8 flex flex-wrap items-center justify-center gap-2"
+      >
+        <a
+          href="#partnerships"
+          className="rounded-full border border-zinc-200/70 px-3 py-1.5 text-sm text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+        >
           All
         </a>
         {categories.map((c) => (
-          <span key={c} className="rounded-full border border-zinc-200/70 px-3 py-1.5 text-sm text-zinc-700 dark:border-zinc-700 dark:text-zinc-300">
+          <span
+            key={c}
+            className="rounded-full border border-zinc-200/70 px-3 py-1.5 text-sm text-zinc-700 dark:border-zinc-700 dark:text-zinc-300"
+          >
             {c}
           </span>
         ))}
@@ -170,7 +182,8 @@ export default function PartnershipsSection() {
 
       {/* Footnotes / compliance line */}
       <p className="mt-10 text-center text-xs text-zinc-500 dark:text-zinc-400">
-        Logos are placeholders. Official partner designations and artwork will be displayed once agreements are finalized.
+        Logos are placeholders. Official partner designations and artwork will
+        be displayed once agreements are finalized.
       </p>
     </section>
   );
