@@ -1,5 +1,7 @@
 // src/App.jsx
 import { useEffect, useState } from "react";
+import PartnershipsSection from "./components/PartnershipsSection";
+
 
 export default function AitheronSite() {
   // Logo (placed in /public/logo.png)
@@ -127,6 +129,7 @@ useEffect(() => {
       <a href="#services" className="hover:text-yellow-400">Services</a>
       <a href="#industries" className="hover:text-yellow-400">Industries</a>
       <a href="#why" className="hover:text-yellow-400">Why Us</a>
+      <a href="#partnerships" className="hover:text-yellow-400">Partnerships</a>
       <a href="#contact" className="hover:text-yellow-400">Contact</a>
 
       {/* CTA group */}
@@ -195,6 +198,7 @@ useEffect(() => {
         <a href="#services" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Services</a>
         <a href="#industries" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Industries</a>
         <a href="#why" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Why Us</a>
+        <a href="#partnerships" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Partnerships</a>
         <a href="#contact" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Contact</a>
 
         <div className="mt-2 grid gap-2">
@@ -302,6 +306,8 @@ useEffect(() => {
           </div>
         </div>
       </section>
+
+      <PartnershipsSection />
 
       {/* Industries */}
       <section id="industries" className="border-t border-white/10">
