@@ -132,7 +132,7 @@ export default function PartnershipsSection() {
   );
 
   return (
-    <section id="partnerships" aria-labelledby="partnerships-heading" className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <section id="partnerships" aria-labelledby="partnerships-heading" className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-24">
       {/* Header */}
       <div className="mx-auto max-w-3xl text-center">
         <h2 id="partnerships-heading" className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
