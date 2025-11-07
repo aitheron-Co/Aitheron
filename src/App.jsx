@@ -1,6 +1,6 @@
 // src/App.jsx
 import { useEffect, useState } from "react";
-import PartnershipsSection from "./components/PartnershipsSection";
+import PartnershipsSection from "./components/PartnershipsSection.jsx";
 
 
 export default function AitheronSite() {
