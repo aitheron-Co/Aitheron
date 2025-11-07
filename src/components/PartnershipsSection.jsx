@@ -113,20 +113,20 @@ function PartnerCard({ partner }) {
       </p>
 
       <div className="mt-5">
-      <Link
-   to={p.cta.href}
-   className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800/80"
- >
-   {p.cta.label}
- </Link>
+        {/* Use React Router Link and the correct variable: partner (not p) */}
+        <Link
+          to={partner.cta.href}
+          className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800/80"
+        >
           {partner.cta.label}
-        </a>
+        </Link>
       </div>
 
       <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/0 transition group-hover:ring-black/5 dark:group-hover:ring-white/10" />
     </article>
   );
 }
+
 
 export default function PartnershipsSection() {
   const categories = useMemo(
