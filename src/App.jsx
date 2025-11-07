@@ -1,7 +1,7 @@
 // src/App.jsx
 import { useEffect, useState } from "react";
 import PartnershipsSection from "./components/PartnershipsSection.jsx";
-import AzureServicesSection from "./components/AzureServicesSection.jsx";
+
 
 
 export default function AitheronSite() {
@@ -310,8 +310,6 @@ useEffect(() => {
 
       <PartnershipsSection />
 
-      {/* Azure & Microsoft Services */}
-      <AzureServicesSection />
 
       {/* Industries */}
       <section id="industries" className="border-t border-white/10">
