@@ -1,11 +1,26 @@
 // src/App.jsx
+import CookieBanner from "./components/CookieBanner.jsx";
 import { useEffect, useState } from "react";
+import { hasAnalyticsConsent } from "./utils/consent";
 import PartnershipsSection from "./components/PartnershipsSection.jsx";
 import useClarityPageView from "./hooks/useClarityPageView";
+import { loadClarityOnce } from "./utils/loadClarity";
+
 
 
 
 export default function AitheronSite() {
+
+  useEffect(() => { if (hasAnalyticsConsent()) loadClarityOnce("u3znow4ygn"); }, []);
+  …
+  return (
+    <div className="min-h-screen …">
+      {/* existing content */}
+      <CookieBanner />
+    </div>
+  );
+}
+  
   useClarityPageView(); 
   
   // Logo (placed in /public/logo.png)
