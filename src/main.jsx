@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AitheronSite from "./App.jsx";
 import ServicePage from "./pages/ServicePage.jsx";   // ⬅️ use the generic template
 import "./index.css";
+
 
 // Load Calendly widget globally (all routes)
 if (!document.querySelector("#calendly-widget-js")) {
@@ -22,6 +23,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         {/* Dynamic services route: /services/:slug  (azure, aws, streaming, …) */}
         <Route path="/services/:slug" element={<ServicePage />} />
+
+        <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<AitheronSite />} />
+    <Route path="/services/:slug" element={<ServicePage />} />
+  </Routes>
+</BrowserRouter>
+    
 
         {/* Back-compat: if anyone hits the old hardcoded Azure path, redirect */}
         <Route path="/services/azure" element={<Navigate to="/services/azure" replace />} />
