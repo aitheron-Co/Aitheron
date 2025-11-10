@@ -34,7 +34,7 @@ const partners = [
     tagline: "Future multi-cloud expansion with analytics and migration capabilities.",
     description:
       "Planned enablement for data lake architectures, warehousing, and migration strategies to support multi-cloud requirements.",
-    cta: { label: "Our Multi-Cloud Approach", href: "/services/multicloud" },
+    cta: { label: "Our Multi-Cloud Approach", href: "/services/aws" },
     logo: <div className="font-semibold text-xl tracking-tight">aws</div>,
   },
   {
