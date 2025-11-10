@@ -6,65 +6,52 @@ import PartnershipsSection from "./components/PartnershipsSection.jsx";
 import useClarityPageView from "./hooks/useClarityPageView";
 import { loadClarityOnce } from "./utils/loadClarity";
 
-
-
-
 export default function AitheronSite() {
+  // Track SPA page views in Clarity
+  useClarityPageView();
 
-  useEffect(() => { if (hasAnalyticsConsent()) loadClarityOnce("u3znow4ygn"); }, []);
+  // Load Clarity after consent
+  useEffect(() => {
+    if (hasAnalyticsConsent()) loadClarityOnce("u3znow4ygn");
+  }, []);
 
-  return (
-    <div className="min-h-screen …">
-      {/* existing content */}
-      <CookieBanner />
-    </div>
-  );
-}
-  
-  useClarityPageView(); 
-  
   // Logo (placed in /public/logo.png)
   const logoSrc = "/logo.png";
 
   // ===== Calendly =====
-  const CALENDLY_URL = "https://calendly.com/aitheron/new-meeting?background_color=000000&text_color=ffffff&primary_color=d4a017"; // ← put your real link
+  const CALENDLY_URL =
+    "https://calendly.com/aitheron/new-meeting?background_color=000000&text_color=ffffff&primary_color=d4a017";
   const openCalendly = (e) => {
-  e?.preventDefault?.();
+    e?.preventDefault?.();
 
-  if (!CALENDLY_URL || CALENDLY_URL.includes("your-handle")) {
-    alert("Please set CALENDLY_URL in App.jsx to your real Calendly link.");
-    return;
-  }
-
-  // If widget is ready, open popup
-  if (window.Calendly && typeof window.Calendly.initPopupWidget === "function") {
-    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-    return;
-  }
-
-  // Otherwise, try again shortly once the widget script loads
-  const tryLater = setInterval(() => {
+    // If widget is ready, open popup
     if (window.Calendly && typeof window.Calendly.initPopupWidget === "function") {
-      clearInterval(tryLater);
       window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+      return;
     }
-  }, 200);
 
-  // Hard fallback after ~1.5s: just navigate to your Calendly page
-  setTimeout(() => {
-    try { clearInterval(tryLater); } catch {}
-    if (!(window.Calendly && typeof window.Calendly.initPopupWidget === "function")) {
-      window.location.href = CALENDLY_URL;
-    }
-  }, 1500);
-};
+    // Otherwise, try again shortly once the widget script loads
+    const tryLater = setInterval(() => {
+      if (window.Calendly && typeof window.Calendly.initPopupWidget === "function") {
+        clearInterval(tryLater);
+        window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+      }
+    }, 200);
 
+    // Hard fallback after ~1.5s: just navigate to your Calendly page
+    setTimeout(() => {
+      try {
+        clearInterval(tryLater);
+      } catch {}
+      if (!(window.Calendly && typeof window.Calendly.initPopupWidget === "function")) {
+        window.location.href = CALENDLY_URL;
+      }
+    }, 1500);
+  };
 
   // ===== Formspree =====
-  // 1) Create form at https://formspree.io
-  // 2) Paste your endpoint below (e.g., https://formspree.io/f/abcdwxyz)
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrbywnyj";
-  
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -107,7 +94,7 @@ export default function AitheronSite() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // Load Calendly widget script once
+  // Load Calendly widget script once (kept here as a safety net even though main.jsx injects globally)
   useEffect(() => {
     if (!document.querySelector("#calendly-widget-js")) {
       const s = document.createElement("script");
@@ -119,139 +106,133 @@ export default function AitheronSite() {
   }, []);
 
   // Prevent background scroll when mobile menu is open
-useEffect(() => {
-  if (mobileOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
-  return () => {
-    document.body.style.overflow = "";
-  };
-}, [mobileOpen]);
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   return (
     <div className="min-h-screen w-full text-white bg-black selection:bg-yellow-500/30 selection:text-yellow-200">
-      {/* Top banner */}
-   {/* =================== HEADER (Responsive) =================== */}
-<header className="sticky top-0 z-50 relative">
-  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.25),rgba(0,0,0,0.1)_40%,rgba(0,0,0,1))]" />
-  <div className="relative mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-    {/* Brand */}
-    <div className="flex items-center gap-3">
-      <img src="/logo.png" alt="Aitheron Logo" className="h-10 w-10 object-contain rounded-full" />
-      <span className="text-lg md:text-xl font-semibold tracking-widest text-yellow-400">AITHERON</span>
-    </div>
+      {/* =================== HEADER (Responsive) =================== */}
+      <header className="sticky top-0 z-50 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.25),rgba(0,0,0,0.1)_40%,rgba(0,0,0,1))]" />
+        <div className="relative mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+          {/* Brand */}
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="Aitheron Logo" className="h-10 w-10 object-contain rounded-full" />
+            <span className="text-lg md:text-xl font-semibold tracking-widest text-yellow-400">AITHERON</span>
+          </div>
 
-    {/* Desktop Nav */}
-    <nav className="hidden md:flex items-center gap-8 text-sm">
-      <a href="#services" className="hover:text-yellow-400">Services</a>
-      <a href="#industries" className="hover:text-yellow-400">Industries</a>
-      <a href="#why" className="hover:text-yellow-400">Why Us</a>
-      <a href="#partnerships" className="hover:text-yellow-400">Partnerships</a>
-      <a href="#contact" className="hover:text-yellow-400">Contact</a>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8 text-sm">
+            <a href="#services" className="hover:text-yellow-400">Services</a>
+            <a href="#industries" className="hover:text-yellow-400">Industries</a>
+            <a href="#why" className="hover:text-yellow-400">Why Us</a>
+            <a href="#partnerships" className="hover:text-yellow-400">Partnerships</a>
+            <a href="#contact" className="hover:text-yellow-400">Contact</a>
 
-      {/* CTA group */}
-      <div className="flex items-center gap-3">
-        <a
-          href="https://www.linkedin.com/company/aitheron"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow Aitheron on LinkedIn"
-          className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
-            <path d="M19 0H5A5 5 0 0 0 0 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5ZM7.5 20H5V9h2.5v11Zm-1.3-12.6A1.45 1.45 0 1 1 7.65 6a1.45 1.45 0 0 1-1.45 1.4ZM20 20h-2.5v-5.6c0-1.46-.52-2.45-1.82-2.45-1 0-1.6.68-1.86 1.33-.1.24-.12.58-.12.92V20H11.2s.03-9.5 0-10.5H13.7v1.49c.33-.5 1.16-1.22 2.7-1.22 1.97 0 3.6 1.29 3.6 4.07V20Z"/>
-          </svg>
-          <span>LinkedIn</span>
-        </a>
+            {/* CTA group */}
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com/company/aitheron"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Aitheron on LinkedIn"
+                className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                  <path d="M19 0H5A5 5 0 0 0 0 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5ZM7.5 20H5V9h2.5v11Zm-1.3-12.6A1.45 1.45 0 1 1 7.65 6a1.45 1.45 0 0 1-1.45 1.4ZM20 20h-2.5v-5.6c0-1.46-.52-2.45-1.82-2.45-1 0-1.6.68-1.86 1.33-.1.24-.12.58-.12.92V20H11.2s.03-9.5 0-10.5H13.7v1.49c.33-.5 1.16-1.22 2.7-1.22 1.97 0 3.6 1.29 3.6 4.07V20Z" />
+                </svg>
+                <span>LinkedIn</span>
+              </a>
 
-        <button
-          onClick={openCalendly}
-          className="rounded-full bg-yellow-500/20 px-4 py-2 text-yellow-300 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30"
-        >
-          Book a Call
-        </button>
-      </div>
-    </nav>
+              <button
+                onClick={openCalendly}
+                className="rounded-full bg-yellow-500/20 px-4 py-2 text-yellow-300 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30"
+              >
+                Book a Call
+              </button>
+            </div>
+          </nav>
 
-    {/* Mobile menu toggle */}
-    <button
-      type="button"
-      className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
-      aria-label="Open menu"
-      aria-expanded={mobileOpen ? "true" : "false"}
-      onClick={() => setMobileOpen((v) => !v)}
-    >
-      {/* burger icon */}
-      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z" />
-      </svg>
-    </button>
-  </div>
-
-  {/* Mobile dropdown (overlay) */}
-{mobileOpen && (
-  <div
-    className="md:hidden fixed inset-x-0 top-[64px] z-[60] bg-black/95 ring-1 ring-white/10
-               max-h-[calc(100vh-64px)] overflow-y-auto"
-    role="dialog"
-    aria-modal="true"
-  >
-    <div className="mx-auto max-w-7xl px-6 py-4">
-      <div className="flex justify-end">
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-white/70 hover:text-white"
-          aria-label="Close menu"
-          onClick={() => setMobileOpen(false)}
-        >
-          <span className="sr-only">Close menu</span>
-          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.71 2.89 18.3 9.17 12 2.89 5.71 4.3 4.29l6.29 6.3 6.29-6.3z"/>
-          </svg>
-        </button>
-      </div>
-
-      <nav className="grid gap-2 text-base">
-        <a href="#services" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Services</a>
-        <a href="#industries" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Industries</a>
-        <a href="#why" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Why Us</a>
-        <a href="#partnerships" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Partnerships</a>
-        <a href="#contact" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Contact</a>
-
-        <div className="mt-2 grid gap-2">
-          <a
-            href="https://www.linkedin.com/company/aitheron"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
-            onClick={() => setMobileOpen(false)}
-          >
-            {/* LinkedIn icon */}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
-              <path d="M19 0H5A5 5 0 0 0 0 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5ZM7.5 20H5V9h2.5v11Zm-1.3-12.6A1.45 1.45 0 1 1 7.65 6a1.45 1.45 0 0 1-1.45 1.4ZM20 20h-2.5v-5.6c0-1.46-.52-2.45-1.82-2.45-1 0-1.6.68-1.86 1.33-.1.24-.12.58-.12.92V20H11.2s.03-9.5 0-10.5H13.7v1.49c.33-.5 1.16-1.22 2.7-1.22 1.97 0 3.6 1.29 3.6 4.07V20Z"/>
-            </svg>
-            <span>LinkedIn</span>
-          </a>
-
+          {/* Mobile menu toggle */}
           <button
-            onClick={() => { setMobileOpen(false); openCalendly(); }}
-            className="rounded-xl bg-yellow-500/20 px-3 py-2 text-yellow-200 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30"
+            type="button"
+            className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
+            aria-label="Open menu"
+            aria-expanded={mobileOpen ? "true" : "false"}
+            onClick={() => setMobileOpen((v) => !v)}
           >
-            Book a Call
+            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z" />
+            </svg>
           </button>
         </div>
-      </nav>
-    </div>
-  </div>
-)}
-</header>
-{/* ================= END HEADER (Responsive) ================= */}
 
-      
+        {/* Mobile dropdown (overlay) */}
+        {mobileOpen && (
+          <div
+            className="md:hidden fixed inset-x-0 top-[64px] z-[60] bg-black/95 ring-1 ring-white/10 max-h-[calc(100vh-64px)] overflow-y-auto"
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="mx-auto max-w-7xl px-6 py-4">
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg p-2 text-white/70 hover:text-white"
+                  aria-label="Close menu"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <span className="sr-only">Close menu</span>
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.71 2.89 18.3 9.17 12 2.89 5.71 4.3 4.29l6.29 6.3 6.29-6.3z" />
+                  </svg>
+                </button>
+              </div>
+
+              <nav className="grid gap-2 text-base">
+                <a href="#services" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Services</a>
+                <a href="#industries" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Industries</a>
+                <a href="#why" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Why Us</a>
+                <a href="#partnerships" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Partnerships</a>
+                <a href="#contact" className="rounded-lg px-3 py-2 hover:bg-white/10" onClick={() => setMobileOpen(false)}>Contact</a>
+
+                <div className="mt-2 grid gap-2">
+                  <a
+                    href="https://www.linkedin.com/company/aitheron"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                      <path d="M19 0H5A5 5 0 0 0 0 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5ZM7.5 20H5V9h2.5v11Zm-1.3-12.6A1.45 1.45 0 1 1 7.65 6a1.45 1.45 0 0 1-1.45 1.4ZM20 20h-2.5v-5.6c0-1.46-.52-2.45-1.82-2.45-1 0-1.6.68-1.86 1.33-.1.24-.12.58-.12.92V20H11.2s.03-9.5 0-10.5H13.7v1.49c.33-.5 1.16-1.22 2.7-1.22 1.97 0 3.6 1.29 3.6 4.07V20Z" />
+                    </svg>
+                    <span>LinkedIn</span>
+                  </a>
+
+                  <button
+                    onClick={() => { setMobileOpen(false); openCalendly(); }}
+                    className="rounded-xl bg-yellow-500/20 px-3 py-2 text-yellow-200 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30"
+                  >
+                    Book a Call
+                  </button>
+                </div>
+              </nav>
+            </div>
+          </div>
+        )}
+      </header>
+      {/* ================= END HEADER (Responsive) ================= */}
+
       {/* Hero */}
-
       <section id="hero" className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10" />
         <div className="mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
@@ -326,25 +307,25 @@ useEffect(() => {
         </div>
       </section>
 
+      {/* Partnerships */}
       <PartnershipsSection />
-
 
       {/* Industries */}
       <section id="industries" className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <h2 className="text-2xl md:text-3xl font-bold text-yellow-400">Industries We Serve</h2>
-        <ul className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-white/80">
-          {[
-            "Financial Services",
-            "Healthcare & Life Sciences",
-            "Retail & E-commerce",
-            "Manufacturing & Supply Chain",
-            "Telecom & Media",
-            "Public Sector (Greece & Cyprus)",
-          ].map((it) => (
-            <li key={it} className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">{it}</li>
-          ))}
-        </ul>
+          <ul className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-white/80">
+            {[
+              "Financial Services",
+              "Healthcare & Life Sciences",
+              "Retail & E-commerce",
+              "Manufacturing & Supply Chain",
+              "Telecom & Media",
+              "Public Sector (Greece & Cyprus)",
+            ].map((it) => (
+              <li key={it} className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">{it}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -382,11 +363,17 @@ useEffect(() => {
             <ContactCard label="Web" value="www.aitheron.gr" />
           </div>
           <div className="mt-6">
-            <button onClick={openCalendly} className="rounded-xl bg-yellow-500/20 px-6 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30">
+            <button
+              onClick={openCalendly}
+              className="rounded-xl bg-yellow-500/20 px-6 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30"
+            >
               Book a Call
             </button>
           </div>
-          <a href="#hero" className="mt-8 inline-block rounded-xl bg-yellow-500/20 px-6 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30">
+          <a
+            href="#hero"
+            className="mt-8 inline-block rounded-xl bg-yellow-500/20 px-6 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30"
+          >
             Back to top
           </a>
         </div>
@@ -428,7 +415,11 @@ useEffect(() => {
                 <div className="flex flex-wrap items-center justify-end gap-3 pt-2">
                   <button type="button" onClick={() => setShowForm(false)} className="text-white/60 hover:text-white">Cancel</button>
                   <button type="button" onClick={openCalendly} className="rounded bg-white/10 px-4 py-2 text-yellow-200 ring-1 ring-white/15 hover:bg-white/15">Book a Call</button>
-                  <button disabled={submitting} type="submit" className="rounded bg-yellow-500/20 px-4 py-2 text-yellow-200 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30 disabled:opacity-60 disabled:cursor-not-allowed">
+                  <button
+                    disabled={submitting}
+                    type="submit"
+                    className="rounded bg-yellow-500/20 px-4 py-2 text-yellow-200 ring-1 ring-yellow-500/40 hover:bg-yellow-500/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
                     {submitting ? "Sending…" : "Send"}
                   </button>
                 </div>
@@ -438,62 +429,66 @@ useEffect(() => {
           </div>
         </div>
       )}
-<section id="legal" className="border-t border-white/10 bg-neutral-950/30">
-  <div className="mx-auto max-w-5xl px-6 py-12 text-left text-white/70 space-y-4">
-    <h2 className="text-xl font-semibold text-yellow-400">Privacy Policy & Legal Notice</h2>
 
-    <p>
-      AITHERON respects your privacy and complies with the EU General Data Protection Regulation (GDPR).
-      We only collect the personal information that you voluntarily provide through our contact forms or business communications.
-      This information is used exclusively for responding to your inquiries, preparing proposals, or maintaining a business relationship.
-    </p>
+      {/* Legal */}
+      <section id="legal" className="border-t border-white/10 bg-neutral-950/30">
+        <div className="mx-auto max-w-5xl px-6 py-12 text-left text-white/70 space-y-4">
+          <h2 className="text-xl font-semibold text-yellow-400">Privacy Policy & Legal Notice</h2>
 
-    <p>
-      We do not share, sell, or rent your data to any third parties.
-      All submitted information is stored securely and only for as long as necessary for the purposes outlined above.
-    </p>
+          <p>
+            AITHERON respects your privacy and complies with the EU General Data Protection Regulation (GDPR).
+            We only collect the personal information that you voluntarily provide through our contact forms or business communications.
+            This information is used exclusively for responding to your inquiries, preparing proposals, or maintaining a business relationship.
+          </p>
 
-    <p>
-      If you wish to request access to, correction, or deletion of your personal data, you may contact us at
-      <a href="mailto:privacy@aitheron.gr" className="text-yellow-400 hover:underline ml-1">privacy@aitheron.gr</a>.
-    </p>
+          <p>
+            We do not share, sell, or rent your data to any third parties.
+            All submitted information is stored securely and only for as long as necessary for the purposes outlined above.
+          </p>
 
-    <p>
-      <strong>Company:</strong> AITHERON • Πλ. Ιπποδαμείας 8, Πειραιάς, Αττική, 18531, Greece • VAT: EL803032552  
-      <br />
-      <strong>Website:</strong> <a href="https://www.aitheron.gr" className="text-yellow-400 hover:underline">www.aitheron.gr</a>
-    </p>
+          <p>
+            If you wish to request access to, correction, or deletion of your personal data, you may contact us at
+            <a href="mailto:privacy@aitheron.gr" className="text-yellow-400 hover:underline ml-1">privacy@aitheron.gr</a>.
+          </p>
 
-    <p className="text-sm text-white/50">
-      By using this website, you agree to our Privacy Policy.  
-      This site may use cookies or analytics tools solely to understand aggregated traffic and improve user experience.
-    </p>
-  </div>
-</section>
+          <p>
+            <strong>Company:</strong> AITHERON • Πλ. Ιπποδαμείας 8, Πειραιάς, Αττική, 18531, Greece • VAT: EL803032552
+            <br />
+            <strong>Website:</strong> <a href="https://www.aitheron.gr" className="text-yellow-400 hover:underline">www.aitheron.gr</a>
+          </p>
 
-<footer className="border-t border-white/10 text-center text-xs text-white/60 py-8 space-y-4">
-  <p>© {new Date().getFullYear()} <span className="font-semibold text-white">AITHERON</span>. All rights reserved.</p>
+          <p className="text-sm text-white/50">
+            By using this website, you agree to our Privacy Policy.
+            This site may use cookies or analytics tools solely to understand aggregated traffic and improve user experience.
+          </p>
+        </div>
+      </section>
 
-  <div className="flex justify-center gap-6 text-yellow-400">
-    <a
-      href="https://www.linkedin.com/company/aitheron"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 hover:text-yellow-300 transition"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11.75 20h-2.5v-10h2.5v10zm-1.25-11.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5zm13 11.5h-2.5v-5.604c0-1.337-.025-3.061-1.865-3.061-1.867 0-2.155 1.458-2.155 2.964v5.701h-2.5v-10h2.4v1.367h.034c.334-.632 1.155-1.299 2.377-1.299 2.541 0 3.009 1.673 3.009 3.848v6.084z"/>
-      </svg>
-      <span>Follow us on LinkedIn</span>
-    </a>
-  </div>
+      {/* Footer */}
+      <footer className="border-t border-white/10 text-center text-xs text-white/60 py-8 space-y-4">
+        <p>© {new Date().getFullYear()} <span className="font-semibold text-white">AITHERON</span>. All rights reserved.</p>
 
-  <p className="text-white/40 text-[10px]">
-    AITHERON is a Greece-based technology company providing advanced Database, Cloud, and AI solutions.
-  </p>
-</footer>
+        <div className="flex justify-center gap-6 text-yellow-400">
+          <a
+            href="https://www.linkedin.com/company/aitheron"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-yellow-300 transition"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11.75 20h-2.5v-10h2.5v10zm-1.25-11.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5zm13 11.5h-2.5v-5.604c0-1.337-.025-3.061-1.865-3.061-1.867 0-2.155 1.458-2.155 2.964v5.701h-2.5v-10h2.4v1.367h.034c.334-.632 1.155-1.299 2.377-1.299 2.541 0 3.009 1.673 3.009 3.848v6.084z" />
+            </svg>
+            <span>Follow us on LinkedIn</span>
+          </a>
+        </div>
 
+        <p className="text-white/40 text-[10px]">
+          AITHERON is a Greece-based technology company providing advanced Database, Cloud, and AI solutions.
+        </p>
+      </footer>
 
+      {/* Cookie banner (consent) */}
+      <CookieBanner />
     </div>
   );
 }
@@ -504,7 +499,10 @@ function Card({ title, points }) {
       <h3 className="text-lg font-semibold text-yellow-300">{title}</h3>
       <ul className="mt-3 space-y-2 text-white/80 text-sm">
         {points.map((p) => (
-          <li key={p} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-yellow-400" />{p}</li>
+          <li key={p} className="flex gap-2">
+            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-yellow-400" />
+            {p}
+          </li>
         ))}
       </ul>
     </div>
