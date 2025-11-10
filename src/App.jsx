@@ -12,7 +12,7 @@ import { loadClarityOnce } from "./utils/loadClarity";
 export default function AitheronSite() {
 
   useEffect(() => { if (hasAnalyticsConsent()) loadClarityOnce("u3znow4ygn"); }, []);
-  …
+
   return (
     <div className="min-h-screen …">
       {/* existing content */}
