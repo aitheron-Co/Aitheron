@@ -89,13 +89,13 @@ function PartnerCard({ partner }) {
       <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{partner.description}</p>
 
       <div className="mt-5">
-        <Link
-          to={partner.cta.href}
-          className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800/80"
-        >
-          {partner.cta.label}
-        </Link>
-      </div>
+  <Link
+    to={partner.cta.href}
+    className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800/80"
+  >
+    {partner.cta.label}
+  </Link>
+</div>
     </article>
   );
 }
