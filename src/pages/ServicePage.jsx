@@ -177,7 +177,7 @@ export default function ServicePage() {
               </div>
             ))}
           </div>
-        </section
+        </section>
             <div className="mt-8 flex flex-wrap gap-3">
             {service.ctas.map((c) => (
               <button
