@@ -194,27 +194,6 @@ export default function ServicePage() {
           </div>
         </section>
 
-        {/* Secondary CTAs */}
-        <section className="mt-12 flex flex-wrap gap-3">
-          <button
-            onClick={() => handleCTA("assessment")}
-            className="rounded-xl bg-yellow-500/20 px-5 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30"
-          >
-            Request an Azure Assessment
-          </button>
-          <button
-            onClick={() => handleCTA("engage")}
-            className="rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10"
-          >
-            See How We Engage
-          </button>
-          <button
-            onClick={() => handleCTA("calendly")}
-            className="rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10"
-          >
-            Book a Call
-          </button>
-        </section>
       </main>
 
       {/* Inline Calendly fallback (only if global widget not ready) */}
