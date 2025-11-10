@@ -1,7 +1,14 @@
 import { useParams, Link } from "react-router-dom";
 import { services } from "../data/services";
 import { track } from "../utils/analytics";
+import CookieBanner from "../components/CookieBanner.jsx";
 import { useState, useEffect } from "react";
+import { hasAnalyticsConsent } from "../utils/consent";
+import { loadClarityOnce } from "../utils/loadClarity";
+
+useEffect(() => { if (hasAnalyticsConsent()) loadClarityOnce("u3znow4ygn"); }, []);
+
+
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -27,6 +34,13 @@ export default function ServicePage() {
     if (window.Calendly?.initPopupWidget) return window.Calendly.initPopupWidget({ url });
     setShow(true);
   }
+
+  return (
+  <div className="min-h-screen bg-black text-white">
+    {/* header… main… overlay… */}
+    <CookieBanner />
+  </div>
+);
 
   return (
     <div className="min-h-screen bg-black text-white">
