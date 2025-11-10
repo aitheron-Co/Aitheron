@@ -1,10 +1,13 @@
 // src/App.jsx
 import { useEffect, useState } from "react";
 import PartnershipsSection from "./components/PartnershipsSection.jsx";
+import useClarityPageView from "./hooks/useClarityPageView";
 
 
 
 export default function AitheronSite() {
+  useClarityPageView(); 
+  
   // Logo (placed in /public/logo.png)
   const logoSrc = "/logo.png";
 
