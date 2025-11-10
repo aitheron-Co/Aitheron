@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { services } from "../data/services";
 import { track } from "../utils/analytics";
 import CookieBanner from "../components/CookieBanner.jsx";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { hasAnalyticsConsent } from "../utils/consent";
 import { loadClarityOnce } from "../utils/loadClarity";
 
