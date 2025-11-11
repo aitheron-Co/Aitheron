@@ -178,7 +178,7 @@ export default function ServicePage() {
             ))}
           </div>
         </section>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3"
             {service.ctas.map((c) => (
               <button
                 key={c.label}
