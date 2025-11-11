@@ -168,6 +168,96 @@ function ConfluentPulse() {
   );
 }
 
+// Simple, lightweight Kafka flow card with animated arrows
+function KafkaQuickDiagram() {
+  return (
+    <div className="mt-8 rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+      <h3 className="text-lg font-semibold text-cyan-300">Kafka Quick Diagram</h3>
+      <p className="mt-1 text-sm text-white/70">
+        High-level data flow across Producers, Kafka Topics and Consumers.
+      </p>
+
+      <div className="relative mt-5 grid grid-cols-1 gap-4 md:grid-cols-3 items-center">
+        {/* Producers */}
+        <div className="rounded-xl bg-white/[0.04] p-4 ring-1 ring-white/10">
+          <p className="text-sm font-medium text-white/80 mb-2">Producers</p>
+          <ul className="text-sm text-white/70 space-y-1 list-disc pl-4">
+            <li>Apps / Services</li>
+            <li>CDC Connectors</li>
+            <li>IoT / Logs</li>
+          </ul>
+        </div>
+
+        {/* Center: Topics with animated arrows */}
+        <div className="relative rounded-xl bg-white/[0.04] p-4 ring-1 ring-white/10 overflow-hidden">
+          <p className="text-sm font-medium text-white/80 mb-2">Kafka Topics</p>
+          <div className="flex flex-wrap gap-2">
+            <span className="rounded-lg bg-cyan-500/10 px-2 py-1 text-xs text-cyan-200 ring-1 ring-cyan-500/20">orders</span>
+            <span className="rounded-lg bg-cyan-500/10 px-2 py-1 text-xs text-cyan-200 ring-1 ring-cyan-500/20">payments</span>
+            <span className="rounded-lg bg-cyan-500/10 px-2 py-1 text-xs text-cyan-200 ring-1 ring-cyan-500/20">shipments</span>
+          </div>
+
+          {/* animated arrows L→R and R→L for a subtle motion */}
+          <svg className="pointer-events-none absolute inset-x-0 -bottom-1 h-8 opacity-40" viewBox="0 0 400 40" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="kafkaFlow" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stopColor="#22d3ee" />
+                <stop offset="100%" stopColor="#67e8f9" />
+              </linearGradient>
+              <marker id="arrowHead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L6,3 z" fill="#67e8f9" />
+              </marker>
+            </defs>
+            <path
+              d="M10 20 C 120 10, 280 10, 390 20"
+              stroke="url(#kafkaFlow)"
+              strokeWidth="2"
+              fill="none"
+              markerEnd="url(#arrowHead)"
+            >
+              <animate attributeName="stroke-dashoffset" from="200" to="0" dur="2.5s" repeatCount="indefinite" />
+              <animate attributeName="stroke-dasharray" values="2 6; 2 6" dur="2.5s" repeatCount="indefinite" />
+            </path>
+            <path
+              d="M390 30 C 280 20, 120 20, 10 30"
+              stroke="url(#kafkaFlow)"
+              strokeWidth="1.5"
+              opacity="0.6"
+              fill="none"
+              markerStart="url(#arrowHead)"
+            >
+              <animate attributeName="stroke-dashoffset" from="0" to="200" dur="3s" repeatCount="indefinite" />
+              <animate attributeName="stroke-dasharray" values="1 7; 1 7" dur="3s" repeatCount="indefinite" />
+            </path>
+          </svg>
+        </div>
+
+        {/* Consumers */}
+        <div className="rounded-xl bg-white/[0.04] p-4 ring-1 ring-white/10">
+          <p className="text-sm font-medium text-white/80 mb-2">Consumers</p>
+          <ul className="text-sm text-white/70 space-y-1 list-disc pl-4">
+            <li>Microservices</li>
+            <li>ksqlDB / Flink</li>
+            <li>Warehouses / BI</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Legend */}
+      <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-white/60">
+        <span className="inline-flex items-center gap-2">
+          <span className="inline-block h-2 w-5 rounded-sm bg-cyan-300/70" />
+          flow
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <span className="inline-block h-3 w-3 rounded bg-cyan-500/25 ring-1 ring-cyan-500/30" />
+          topic
+        </span>
+      </div>
+    </div>
+  );
+}
+
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -236,6 +326,8 @@ export default function ServicePage() {
     ))}
   </ul>
 </section>
+
+        {service.slug === "confluent" && <KafkaQuickDiagram />}
 
         {/* Highlights */}
         <section className="mt-12 grid gap-6 md:grid-cols-3">
