@@ -18,47 +18,26 @@ const services = [
       "Purview governance, FinOps cost control",
     ],
     highlights: [
-      {
-        title: "Data Estate Modernization",
-        items: [
-          "Medallion data architecture on OneLake",
-          "Reliable ingestion with ADF & pipelines",
-          "Delta tables, notebooks, semantic models",
-        ],
-      },
-      {
-        title: "Security & Compliance",
-        items: [
-          "Azure RBAC, PIM, Key Vault, Defender",
-          "Purview data catalog & lineage",
-          "Policy-as-code and least-privilege",
-        ],
-      },
-      {
-        title: "Cost & Operability",
-        items: [
-          "Well-Architected Framework reviews",
-          "FinOps controls & showback dashboards",
-          "Observability: Logs, Metrics, Alerts",
-        ],
-      },
+      { title: "Data Estate Modernization", items: [
+        "Medallion data architecture on OneLake",
+        "Reliable ingestion with ADF & pipelines",
+        "Delta tables, notebooks, semantic models",
+      ]},
+      { title: "Security & Compliance", items: [
+        "Azure RBAC, PIM, Key Vault, Defender",
+        "Purview data catalog & lineage",
+        "Policy-as-code and least-privilege",
+      ]},
+      { title: "Cost & Operability", items: [
+        "Well-Architected Framework reviews",
+        "FinOps controls & showback dashboards",
+        "Observability: Logs, Metrics, Alerts",
+      ]},
     ],
     packages: [
-      {
-        name: "Azure Readiness Assessment",
-        desc:
-          "2-week discovery of your current estate, risks, costs and a prioritized roadmap.",
-      },
-      {
-        name: "Fabric Pilot",
-        desc:
-          "4–6 weeks to stand up a lakehouse, ingest real data, and deliver a live Power BI dashboard.",
-      },
-      {
-        name: "Cost Governance Sprint",
-        desc:
-          "4 weeks to implement tagging, budgets, policies and 15–30% cost opportunities.",
-      },
+      { name: "Azure Readiness Assessment", desc: "2-week discovery of your current estate, risks, costs and a prioritized roadmap." },
+      { name: "Fabric Pilot", desc: "4–6 weeks to stand up a lakehouse, ingest real data, and deliver a live Power BI dashboard." },
+      { name: "Cost Governance Sprint", desc: "4 weeks to implement tagging, budgets, policies and 15–30% cost opportunities." },
     ],
     ctas: [
       { label: "Request an Azure Assessment", action: "assessment" },
@@ -67,7 +46,6 @@ const services = [
     ],
   },
 
-  // --------- AWS ----------
   {
     slug: "aws",
     name: "AWS Data & Analytics",
@@ -80,47 +58,26 @@ const services = [
       "Lake Formation governance & catalog",
     ],
     highlights: [
-      {
-        title: "Modern Data Platform on AWS",
-        items: [
-          "S3 data lake with ACID table formats",
-          "Glue jobs, crawlers, workflows",
-          "Redshift data warehouse & Spectrum",
-        ],
-      },
-      {
-        title: "Security & Compliance",
-        items: [
-          "IAM least-privilege, KMS, Secrets Manager",
-          "Lake Formation permissions & column masking",
-          "GuardDuty, Security Hub, CloudTrail",
-        ],
-      },
-      {
-        title: "Cost & Operability",
-        items: [
-          "Well-Architected + Cost Optimization",
-          "Tagging, budgets, and anomaly detection",
-          "CloudWatch/CloudWatch Synthetics & alarms",
-        ],
-      },
+      { title: "Modern Data Platform on AWS", items: [
+        "S3 data lake with ACID table formats",
+        "Glue jobs, crawlers, workflows",
+        "Redshift data warehouse & Spectrum",
+      ]},
+      { title: "Security & Compliance", items: [
+        "IAM least-privilege, KMS, Secrets Manager",
+        "Lake Formation permissions & column masking",
+        "GuardDuty, Security Hub, CloudTrail",
+      ]},
+      { title: "Cost & Operability", items: [
+        "Well-Architected + Cost Optimization",
+        "Tagging, budgets, and anomaly detection",
+        "CloudWatch/CloudWatch Synthetics & alarms",
+      ]},
     ],
     packages: [
-      {
-        name: "AWS Data Readiness",
-        desc:
-          "2-week assessment of workloads, data flows, security posture and a practical roadmap.",
-      },
-      {
-        name: "S3 + Glue Pilot",
-        desc:
-          "4–6 weeks to stand up a governed data lake with Glue jobs and a Redshift analytics slice.",
-      },
-      {
-        name: "AWS FinOps Sprint",
-        desc:
-          "4 weeks to implement tagging, budgets, lifecycle policies and cost guardrails.",
-      },
+      { name: "AWS Data Readiness", desc: "2-week assessment of workloads, data flows, security posture and a practical roadmap." },
+      { name: "S3 + Glue Pilot", desc: "4–6 weeks to stand up a governed data lake with Glue jobs and a Redshift analytics slice." },
+      { name: "AWS FinOps Sprint", desc: "4 weeks to implement tagging, budgets, lifecycle policies and cost guardrails." },
     ],
     ctas: [
       { label: "Request an AWS Assessment", action: "assessment" },
@@ -129,7 +86,6 @@ const services = [
     ],
   },
 
-  // --------- Confluent (Kafka) ----------
   {
     slug: "confluent",
     name: "Confluent (Apache Kafka) Streaming",
@@ -142,47 +98,26 @@ const services = [
       "Observability and platform governance",
     ],
     highlights: [
-      {
-        title: "Streaming Foundations",
-        items: [
-          "Topic design, partitions, retention policies",
-          "Schema Registry & compatibility rules",
-          "Client patterns and idempotency",
-        ],
-      },
-      {
-        title: "Data Integration & CDC",
-        items: [
-          "Confluent/Kafka Connect managed connectors",
-          "Debezium CDC for relational sources",
-          "Stream processing with ksqlDB",
-        ],
-      },
-      {
-        title: "Operate & Secure",
-        items: [
-          "RBAC, API keys, private networking",
-          "Metrics, lag monitoring, dead-letter queues",
-          "Throughput testing & capacity planning",
-        ],
-      },
+      { title: "Streaming Foundations", items: [
+        "Topic design, partitions, retention policies",
+        "Schema Registry & compatibility rules",
+        "Client patterns and idempotency",
+      ]},
+      { title: "Data Integration & CDC", items: [
+        "Confluent/Kafka Connect managed connectors",
+        "Debezium CDC for relational sources",
+        "Stream processing with ksqlDB",
+      ]},
+      { title: "Operate & Secure", items: [
+        "RBAC, API keys, private networking",
+        "Metrics, lag monitoring, dead-letter queues",
+        "Throughput testing & capacity planning",
+      ]},
     ],
     packages: [
-      {
-        name: "Streaming Readiness Workshop",
-        desc:
-          "1–2 weeks to identify real-time use cases, design topics, and a secure platform baseline.",
-      },
-      {
-        name: "CDC → Kafka Pilot",
-        desc:
-          "4–6 weeks to enable CDC from a source system, process with ksqlDB, and serve to consumers.",
-      },
-      {
-        name: "Streaming Ops Sprint",
-        desc:
-          "4 weeks to add observability, DLQs, governance, and performance guardrails.",
-      },
+      { name: "Streaming Readiness Workshop", desc: "1–2 weeks to identify real-time use cases, design topics, and a secure platform baseline." },
+      { name: "CDC → Kafka Pilot", desc: "4–6 weeks to enable CDC from a source system, process with ksqlDB, and serve to consumers." },
+      { name: "Streaming Ops Sprint", desc: "4 weeks to add observability, DLQs, governance, and performance guardrails." },
     ],
     ctas: [
       { label: "Request a Streaming Assessment", action: "assessment" },
@@ -191,6 +126,48 @@ const services = [
     ],
   },
 ];
+
+function ConfluentPulse() {
+  // A subtle animated network of dots/lines
+  return (
+    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <svg
+        className="absolute inset-0 w-full h-full opacity-20"
+        viewBox="0 0 800 400"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stopColor="#00ffff" />
+            <stop offset="100%" stopColor="#66ccff" />
+          </linearGradient>
+        </defs>
+        {/* flowing lines */}
+        <path d="M0,200 C150,150 250,250 400,200 C550,150 650,250 800,200" stroke="url(#g)" fill="none">
+          <animate
+            attributeName="d"
+            dur="6s"
+            repeatCount="indefinite"
+            values="
+              M0,200 C150,150 250,250 400,200 C550,150 650,250 800,200;
+              M0,210 C150,120 250,280 400,190 C550,220 650,160 800,210;
+              M0,200 C150,150 250,250 400,200 C550,150 650,250 800,200
+            "
+          />
+        </path>
+        {/* dots */}
+        {[...Array(30)].map((_, i) => {
+          const x = (i * 27) % 800;
+          const y = 180 + Math.sin(i) * 40;
+          return <circle key={i} cx={x} cy={y} r="2" fill="url(#g)">
+            <animate attributeName="cy" dur="4s" values={`${y};${y+8};${y}`} repeatCount="indefinite" />
+          </circle>;
+        })}
+      </svg>
+    </div>
+  );
+}
+
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -245,18 +222,20 @@ export default function ServicePage() {
 
       <main className="mx-auto max-w-6xl px-6 py-12">
         {/* Hero */}
-        <section>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-yellow-400">
-            {service.name}
-          </h1>
-          <p className="mt-3 text-white/80">{service.sub}</p>
+<section className="relative rounded-3xl bg-white/[0.03] ring-1 ring-white/10 p-6 overflow-hidden">
+  {service.slug === "confluent" && <ConfluentPulse />}
 
-          <ul className="mt-6 grid gap-2 text-sm text-white/80">
-            {service.bullets.map((b) => (
-              <li key={b}>• {b}</li>
-            ))}
-          </ul>
-        </section>
+  <h1 className="text-3xl md:text-4xl font-extrabold text-cyan-400">
+    {service.name}
+  </h1>
+  <p className="mt-3 text-white/80">{service.sub}</p>
+
+  <ul className="mt-6 grid gap-2 text-sm text-white/80 relative">
+    {service.bullets.map((b) => (
+      <li key={b}>• {b}</li>
+    ))}
+  </ul>
+</section>
 
         {/* Highlights */}
         <section className="mt-12 grid gap-6 md:grid-cols-3">
