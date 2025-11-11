@@ -448,7 +448,7 @@ export default function AitheronSite() {
 
           <p>
             If you wish to request access to, correction, or deletion of your personal data, you may contact us at
-            <a href="mailto:privacy@aitheron.gr" className="text-yellow-400 hover:underline ml-1">privacy@aitheron.gr</a>.
+            <a href="mailto:contact@aitheron.gr" className="text-yellow-400 hover:underline ml-1">contact@aitheron.gr</a>.
           </p>
 
           <p>
