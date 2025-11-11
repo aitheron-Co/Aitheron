@@ -178,20 +178,22 @@ export default function ServicePage() {
             ))}
           </div>
         </section>
-            <div className="mt-8 flex flex-wrap gap-3"
-            {service.ctas.map((c) => (
-              <button
-                key={c.label}
-                onClick={() => handleCTA(c.action)}
-                className={
-                  c.action === "assessment"
-                    ? "rounded-xl bg-yellow-500/20 px-5 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30"
-                    : "rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10"
-                }
-              >
-                {c.label}
-              </button>
-            ))}
+        
+         <section className="mt-12 flex flex-wrap justify-center gap-3">
+  {service.ctas.map((c) => (
+    <button
+      key={c.label}
+      onClick={() => handleCTA(c.action)}
+      className={
+        c.action === "assessment"
+          ? "rounded-xl bg-yellow-500/20 px-5 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30"
+          : "rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10"
+      }
+    >
+      {c.label}
+    </button>
+  ))}
+</section>
           </div>
           
           </main>
