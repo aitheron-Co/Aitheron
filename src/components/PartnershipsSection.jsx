@@ -74,10 +74,14 @@ function StatusPill({ status }) {
 }
 
 function PartnerCard({ partner }) {
-  const wide = partner.logoWide; // <-- use per-partner flag
+  const wide = partner.logoWide; // allow wider wordmarks
 
   return (
-    <article /* ... */>
+    <article
+      className="group relative flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm transition hover:shadow-md"
+      aria-label={`${partner.name} partnership card`}
+    >
+      {/* Top: logo + status */}
       <div className="flex items-start justify-between gap-4">
         <div
           className={
@@ -91,10 +95,30 @@ function PartnerCard({ partner }) {
         </div>
         <StatusPill status={partner.status} />
       </div>
-      {/* ... */}
+
+      {/* Title & category */}
+      <h3 className="mt-4 text-lg font-semibold text-white">{partner.name}</h3>
+      <p className="text-sm text-white/60">{partner.category}</p>
+
+      {/* Copy */}
+      <p className="mt-3 text-sm leading-6 text-white/80">{partner.tagline}</p>
+      <p className="mt-2 text-sm leading-6 text-white/70">{partner.description}</p>
+
+      {/* CTA */}
+      {partner.cta && partner.cta.href && (
+        <div className="mt-5">
+          <Link
+            to={partner.cta.href}
+            className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-white/10"
+          >
+            {partner.cta.label}
+          </Link>
+        </div>
+      )}
     </article>
   );
 }
+
 
 export default function PartnershipsSection() {
   const categories = useMemo(() => Array.from(new Set(partners.map((p) => p.category))), []);
