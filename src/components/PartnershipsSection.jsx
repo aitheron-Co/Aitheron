@@ -45,7 +45,7 @@ const partners = [
       "Building Kafka-based streaming competence for real-time data and event-driven systems.",
     description:
       "We are actively pursuing Confluent learning paths and certifications to power real-time analytics, CDC pipelines, and streaming integrations.",
-    cta: { label: "Streaming Readiness", href: "/services/streaming" },
+    cta: { label: "Streaming Readiness", href: "/services/confluent" },
     logo: <div className="font-semibold text-xl tracking-tight">C</div>,
   },
 ];
