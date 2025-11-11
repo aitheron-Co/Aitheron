@@ -51,7 +51,7 @@ logo: (
   <img
     src="/Confluent_logo.png"
     alt="Confluent logo"
-    className="className="h-6 md:h-8 w-auto object-contain"
+    className="h-6 md:h-8 w-auto object-contain"
   />
 ),
   },
