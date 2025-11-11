@@ -66,12 +66,135 @@ const services = [
       { label: "Book a Call", action: "calendly" },
     ],
   },
+
+  // --------- AWS ----------
+  {
+    slug: "aws",
+    name: "AWS Data & Analytics",
+    sub:
+      "Lake Formation governance, Glue pipelines, Redshift/S3 analytics, and cost-optimized architectures.",
+    bullets: [
+      "Landing zone & org setup (Control Tower)",
+      "ETL/ELT with AWS Glue & Lambda",
+      "Data lake on S3 + Redshift for analytics",
+      "Lake Formation governance & catalog",
+    ],
+    highlights: [
+      {
+        title: "Modern Data Platform on AWS",
+        items: [
+          "S3 data lake with ACID table formats",
+          "Glue jobs, crawlers, workflows",
+          "Redshift data warehouse & Spectrum",
+        ],
+      },
+      {
+        title: "Security & Compliance",
+        items: [
+          "IAM least-privilege, KMS, Secrets Manager",
+          "Lake Formation permissions & column masking",
+          "GuardDuty, Security Hub, CloudTrail",
+        ],
+      },
+      {
+        title: "Cost & Operability",
+        items: [
+          "Well-Architected + Cost Optimization",
+          "Tagging, budgets, and anomaly detection",
+          "CloudWatch/CloudWatch Synthetics & alarms",
+        ],
+      },
+    ],
+    packages: [
+      {
+        name: "AWS Data Readiness",
+        desc:
+          "2-week assessment of workloads, data flows, security posture and a practical roadmap.",
+      },
+      {
+        name: "S3 + Glue Pilot",
+        desc:
+          "4–6 weeks to stand up a governed data lake with Glue jobs and a Redshift analytics slice.",
+      },
+      {
+        name: "AWS FinOps Sprint",
+        desc:
+          "4 weeks to implement tagging, budgets, lifecycle policies and cost guardrails.",
+      },
+    ],
+    ctas: [
+      { label: "Request an AWS Assessment", action: "assessment" },
+      { label: "See How We Engage", action: "engage" },
+      { label: "Book a Call", action: "calendly" },
+    ],
+  },
+
+  // --------- Confluent (Kafka) ----------
+  {
+    slug: "confluent",
+    name: "Confluent (Apache Kafka) Streaming",
+    sub:
+      "Event-driven architectures, CDC pipelines, real-time analytics, and microservices with Confluent Cloud.",
+    bullets: [
+      "Kafka topics, schemas, producers/consumers",
+      "Connectors for CDC and SaaS ingestion",
+      "ksqlDB streaming transforms & enrichment",
+      "Observability and platform governance",
+    ],
+    highlights: [
+      {
+        title: "Streaming Foundations",
+        items: [
+          "Topic design, partitions, retention policies",
+          "Schema Registry & compatibility rules",
+          "Client patterns and idempotency",
+        ],
+      },
+      {
+        title: "Data Integration & CDC",
+        items: [
+          "Confluent/Kafka Connect managed connectors",
+          "Debezium CDC for relational sources",
+          "Stream processing with ksqlDB",
+        ],
+      },
+      {
+        title: "Operate & Secure",
+        items: [
+          "RBAC, API keys, private networking",
+          "Metrics, lag monitoring, dead-letter queues",
+          "Throughput testing & capacity planning",
+        ],
+      },
+    ],
+    packages: [
+      {
+        name: "Streaming Readiness Workshop",
+        desc:
+          "1–2 weeks to identify real-time use cases, design topics, and a secure platform baseline.",
+      },
+      {
+        name: "CDC → Kafka Pilot",
+        desc:
+          "4–6 weeks to enable CDC from a source system, process with ksqlDB, and serve to consumers.",
+      },
+      {
+        name: "Streaming Ops Sprint",
+        desc:
+          "4 weeks to add observability, DLQs, governance, and performance guardrails.",
+      },
+    ],
+    ctas: [
+      { label: "Request a Streaming Assessment", action: "assessment" },
+      { label: "See How We Engage", action: "engage" },
+      { label: "Book a Call", action: "calendly" },
+    ],
+  },
 ];
 
 export default function ServicePage() {
   const { slug } = useParams();
   const service = services.find((s) => s.slug === slug);
-
   const [showCal, setShowCal] = useState(false);
 
   function openCalendly(e) {
@@ -86,12 +209,10 @@ export default function ServicePage() {
   function handleCTA(action) {
     if (action === "calendly") return openCalendly();
     if (action === "assessment") {
-      // scroll to contact form on homepage (or replace with a dedicated route later)
       window.location.href = "/#contact";
       return;
     }
     if (action === "engage") {
-      // simple inline scroll to “How we engage” section on this page
       const el = document.getElementById("engagement-model");
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -135,8 +256,7 @@ export default function ServicePage() {
               <li key={b}>• {b}</li>
             ))}
           </ul>
-
-                </section>
+        </section>
 
         {/* Highlights */}
         <section className="mt-12 grid gap-6 md:grid-cols-3">
@@ -178,25 +298,24 @@ export default function ServicePage() {
             ))}
           </div>
         </section>
-        
-         <section className="mt-12 flex flex-wrap justify-center gap-3">
-  {service.ctas.map((c) => (
-    <button
-      key={c.label}
-      onClick={() => handleCTA(c.action)}
-      className={
-        c.action === "assessment"
-          ? "rounded-xl bg-yellow-500/20 px-5 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30"
-          : "rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10"
-      }
-    >
-      {c.label}
-    </button>
-  ))}
-</section>
-          </div>
-          
-          </main>
+
+        {/* CTA buttons at the bottom */}
+        <section className="mt-12 flex flex-wrap justify-center gap-3">
+          {service.ctas.map((c) => (
+            <button
+              key={c.label}
+              onClick={() => handleCTA(c.action)}
+              className={
+                c.action === "assessment"
+                  ? "rounded-xl bg-yellow-500/20 px-5 py-3 ring-1 ring-yellow-500/40 text-yellow-200 hover:bg-yellow-500/30"
+                  : "rounded-xl bg-white/5 px-5 py-3 ring-1 ring-white/10 hover:bg-white/10"
+              }
+            >
+              {c.label}
+            </button>
+          ))}
+        </section>
+      </main>
 
       {/* Inline Calendly fallback (only if global widget not ready) */}
       {showCal && (
