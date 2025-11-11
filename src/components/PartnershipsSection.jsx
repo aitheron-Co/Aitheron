@@ -79,12 +79,12 @@ function PartnerCard({ partner }) {
       aria-label={`${partner.name} partnership card`}
     >
       <div className="flex items-start justify-between gap-4">
-        <div
-          className="grid h-12 w-12 place-items-center rounded-xl bg-zinc-100 text-zinc-700 transition group-hover:grayscale-0 group-hover:opacity-100 dark:bg-zinc-800 dark:text-zinc-200 grayscale opacity-90"
-          aria-hidden="true"
-        >
-          {partner.logo}
-        </div>
+      <div
+  className="flex items-center justify-center h-12 w-12 rounded-xl bg-zinc-100 text-zinc-700 transition group-hover:opacity-100 dark:bg-zinc-800 dark:text-zinc-200 opacity-90"
+  aria-hidden="true"
+>
+  {partner.logo}
+</div>
         <StatusPill status={partner.status} />
       </div>
 
