@@ -327,7 +327,9 @@ export default function ServicePage() {
   </ul>
 </section>
 
-        {service.slug === "confluent" && <KafkaQuickDiagram />}
+        
+{/* Kafka diagram under the hero */}
+{service.slug === "confluent" && <KafkaQuickDiagram />}
 
         {/* Highlights */}
         <section className="mt-12 grid gap-6 md:grid-cols-3">
