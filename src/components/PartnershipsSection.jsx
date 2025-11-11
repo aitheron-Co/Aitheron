@@ -46,7 +46,13 @@ const partners = [
     description:
       "We are actively pursuing Confluent learning paths and certifications to power real-time analytics, CDC pipelines, and streaming integrations.",
     cta: { label: "Streaming Readiness", href: "/services/confluent" },
-    logo: <div className="font-semibold text-xl tracking-tight">C</div>,
+logo: (
+  <img
+    src="/confluent-logo.svg"
+    alt="Confluent logo"
+    className="h-8 w-auto object-contain opacity-90 dark:opacity-80"
+  />
+),
   },
 ];
 
