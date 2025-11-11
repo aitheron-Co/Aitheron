@@ -46,6 +46,7 @@ const partners = [
     description:
       "We are actively pursuing Confluent learning paths and certifications to power real-time analytics, CDC pipelines, and streaming integrations.",
     cta: { label: "Streaming Readiness", href: "/services/confluent" },
+    logoWide: true,
 logo: (
   <img
     src="/Confluent_Logo.png"
@@ -73,6 +74,7 @@ function StatusPill({ status }) {
 }
 
 function PartnerCard({ partner }) {
+  const wide = partner.logoWide;
   return (
     <article
       className="group relative flex flex-col rounded-2xl border border-zinc-200/60 bg-white p-6 shadow-sm ring-1 ring-transparent transition hover:shadow-md hover:ring-zinc-900/5 dark:border-zinc-800 dark:bg-zinc-900"
