@@ -49,7 +49,7 @@ const partners = [
     logoWide: true,
 logo: (
   <img
-    src="/Confluent_Logo.png"
+    src="/Confluent_logo.png"
     alt="Confluent logo"
     className="h-8 w-auto object-contain opacity-90 dark:opacity-80"
   />
