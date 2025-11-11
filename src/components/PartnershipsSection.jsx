@@ -49,9 +49,9 @@ const partners = [
     logoWide: true,
 logo: (
   <img
-    src="/confluent_logo.png"
+    src="/confluent-logo.png"
     alt="Confluent logo"
-    className="h-6 md:h-8 w-auto object-contain"
+    className="block h-5 md:h-6 w-auto object-contain"
   />
 ),
   },
@@ -74,36 +74,24 @@ function StatusPill({ status }) {
 }
 
 function PartnerCard({ partner }) {
-  const wide = partner.logoWide;
+  const wide = partner.logoWide; // <-- use per-partner flag
+
   return (
-    <article
-      className="group relative flex flex-col rounded-2xl border border-zinc-200/60 bg-white p-6 shadow-sm ring-1 ring-transparent transition hover:shadow-md hover:ring-zinc-900/5 dark:border-zinc-800 dark:bg-zinc-900"
-      aria-label={`${partner.name} partnership card`}
-    >
+    <article /* ... */>
       <div className="flex items-start justify-between gap-4">
-      <div
-  className="flex items-center justify-center h-12 w-12 rounded-xl bg-zinc-100 text-zinc-700 transition group-hover:opacity-100 dark:bg-zinc-800 dark:text-zinc-200 opacity-90"
-  aria-hidden="true"
->
-  {partner.logo}
-</div>
+        <div
+          className={
+            wide
+              ? "flex items-center justify-center h-12 w-32 rounded-xl bg-white/5 ring-1 ring-white/10 p-1.5"
+              : "flex items-center justify-center h-12 w-12 rounded-xl bg-white/5 ring-1 ring-white/10 p-1.5"
+          }
+          aria-hidden="true"
+        >
+          {partner.logo}
+        </div>
         <StatusPill status={partner.status} />
       </div>
-
-      <h3 className="mt-4 text-lg font-semibold tracking-tight text-zinc-900 dark:text-white">{partner.name}</h3>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">{partner.category}</p>
-
-      <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">{partner.tagline}</p>
-      <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{partner.description}</p>
-
-      <div className="mt-5">
-  <Link
-    to={partner.cta.href}
-    className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800/80"
-  >
-    {partner.cta.label}
-  </Link>
-</div>
+      {/* ... */}
     </article>
   );
 }
