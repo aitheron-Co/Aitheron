@@ -6,6 +6,7 @@ import AitheronSite from "./App.jsx";
 import ServicePage from "./pages/ServicePage.jsx";
 import "./index.css";
 
+
 // Load Calendly globally (works everywhere)
 if (!document.querySelector("#calendly-widget-js")) {
   const s = document.createElement("script");
