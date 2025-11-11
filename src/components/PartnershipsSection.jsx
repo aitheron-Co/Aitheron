@@ -48,7 +48,7 @@ const partners = [
     cta: { label: "Streaming Readiness", href: "/services/confluent" },
 logo: (
   <img
-    src="/confluent-logo.svg"
+    src="/Confluent_Logo.png"
     alt="Confluent logo"
     className="h-8 w-auto object-contain opacity-90 dark:opacity-80"
   />
