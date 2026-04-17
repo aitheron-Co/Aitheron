@@ -465,6 +465,7 @@ export default function AitheronSite() {
       </section>
 
       {/* Footer */}
+     
       <footer className="border-t border-white/10 text-center text-xs text-white/60 py-8 space-y-4">
         <p>© {new Date().getFullYear()} <span className="font-semibold text-white">AITHERON</span>. All rights reserved.</p>
 
@@ -485,6 +486,13 @@ export default function AitheronSite() {
         <p className="text-white/40 text-[10px]">
           AITHERON is a Greece-based technology company providing advanced Database, Cloud, and AI solutions.
         </p>
+
+        <p>
+  <span className="font-semibold text-yellow-400">Phone:</span>
+  <a href="tel:+302100140327" className="text-yellow-400 hover:underline ml-1">
+    +30 210 0140327
+  </a>
+</p>
       </footer>
 
       {/* Cookie banner (consent) */}
