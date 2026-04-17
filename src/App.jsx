@@ -175,6 +175,18 @@ export default function AitheronSite() {
           </button>
         </div>
 
+{/* Floating mobile call button */}
+<a
+  href="tel:+302100140327"
+  className="fixed bottom-4 right-4 z-[70] md:hidden inline-flex items-center gap-2 rounded-full bg-yellow-500/90 px-4 py-3 text-black font-semibold shadow-lg hover:bg-yellow-400 transition"
+  aria-label="Call Aitheron"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.24 1Z"/>
+  </svg>
+  <span>Call us</span>
+</a>
+        
         {/* Mobile dropdown (overlay) */}
         {mobileOpen && (
           <div
