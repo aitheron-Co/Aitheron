@@ -554,7 +554,9 @@ function Card({ title, points }) {
 
 function ContactCard({ label, value }) {
   const isEmail = label.toLowerCase() === "email";
-  const isPhone = label.toLowerCase() === "phone";
+  const isPhone =
+  label.toLowerCase() === "phone" ||
+  label.toLowerCase() === "business inquiries";
   const isWeb = label.toLowerCase() === "web";
 
   let content = value;
