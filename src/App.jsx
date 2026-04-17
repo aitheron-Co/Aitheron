@@ -137,6 +137,18 @@ export default function AitheronSite() {
             <a href="#partnerships" className="hover:text-yellow-400">Partnerships</a>
             <a href="#contact" className="hover:text-yellow-400">Contact</a>
 
+<a
+  href="tel:+302100140327"
+  className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-yellow-300 ring-1 ring-yellow-500/30 hover:bg-yellow-500/20"
+  aria-label="Call Aitheron for business inquiries"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.24 1Z"/>
+  </svg>
+  <span className="text-white/70">Business inquiries:</span>
+  <span>+30 210 0140327</span>
+</a>
+            
             {/* CTA group */}
             <div className="flex items-center gap-3">
               <a
