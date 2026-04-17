@@ -523,7 +523,7 @@ export default function AitheronSite() {
         </p>
 
         <p>
-  <span className="font-semibold text-yellow-400">Phone:</span>
+  <span className="font-semibold text-yellow-400">Business inquiries:</span>
   <a href="tel:+302100140327" className="text-yellow-400 hover:underline ml-1">
     +30 210 0140327
   </a>
