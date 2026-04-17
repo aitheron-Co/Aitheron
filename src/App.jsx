@@ -394,7 +394,7 @@ export default function AitheronSite() {
           <p className="mt-3 text-white/80">Based in Greece • Serving Greece, Cyprus, and global clients remotely</p>
           <div className="mt-6 grid sm:grid-cols-3 gap-3">
           <ContactCard label="Email" value="contact@aitheron.gr" />
-          <ContactCard label="Phone" value="+30 2100140327" />
+          <ContactCard label="Business inquiries" value="+30 210 0140327" />
           <ContactCard label="Web" value="www.aitheron.gr" />
           </div>
           <div className="mt-6">
