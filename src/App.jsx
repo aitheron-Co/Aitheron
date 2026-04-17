@@ -451,11 +451,11 @@ export default function AitheronSite() {
             <a href="mailto:contact@aitheron.gr" className="text-yellow-400 hover:underline ml-1">contact@aitheron.gr</a>.
           </p>
 
-          <p>
-            <strong>Company:</strong> AITHERON • Πλ. Ιπποδαμείας 8, Πειραιάς, Αττική, 18531, Greece • VAT: EL803032552
-            <br />
-            <strong>Website:</strong> <a href="https://www.aitheron.gr" className="text-yellow-400 hover:underline">www.aitheron.gr</a>
-          </p>
+          <strong>Company:</strong> AITHERON • Πλ. Ιπποδαμείας 8, Πειραιάς, Αττική, 18531, Greece • VAT: EL803032552  
+<br />
+<strong>Phone:</strong> +30 210 0140327
+<br />
+<strong>Website:</strong> www.aitheron.gr
 
           <p className="text-sm text-white/50">
             By using this website, you agree to our Privacy Policy.
