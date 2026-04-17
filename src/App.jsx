@@ -510,10 +510,42 @@ function Card({ title, points }) {
 }
 
 function ContactCard({ label, value }) {
+  const isEmail = label.toLowerCase() === "email";
+  const isPhone = label.toLowerCase() === "phone";
+  const isWeb = label.toLowerCase() === "web";
+
+  let content = value;
+
+  if (isEmail) {
+    content = (
+      <a href={`mailto:${value}`} className="text-white/90 hover:text-yellow-300 transition">
+        {value}
+      </a>
+    );
+  } else if (isPhone) {
+    const telValue = value.replace(/\s+/g, "");
+    content = (
+      <a href={`tel:${telValue}`} className="text-white/90 hover:text-yellow-300 transition">
+        {value}
+      </a>
+    );
+  } else if (isWeb) {
+    content = (
+      <a
+        href={`https://${value.replace(/^https?:\/\//, "")}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-white/90 hover:text-yellow-300 transition"
+      >
+        {value}
+      </a>
+    );
+  }
+
   return (
     <div className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
       <p className="text-white/60 text-xs uppercase tracking-widest">{label}</p>
-      <p className="text-white/90 mt-1">{value}</p>
+      <p className="mt-1">{content}</p>
     </div>
   );
 }
